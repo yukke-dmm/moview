@@ -1,7 +1,11 @@
 Rails.application.routes.draw do
+
+# 基本ページ
   get 'static_pages/home'
   get 'static_pages/about'
-  root 'application#hello'
+  root 'static_pages#home'
+
+# ログイン機構
   get 'login', to:'sessions#new'
   post 'login', to:'sessions#create'
   delete 'logout', to:'sessions#destroy'
