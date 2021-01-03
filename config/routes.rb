@@ -1,9 +1,11 @@
 Rails.application.routes.draw do
 
-  get 'users/new'
+
 # 基本ページ
   get 'about' ,to:'static_pages#about'
   root 'static_pages#home'
+  get '/signup',to: 'users#new'
+
 
 # ログイン機構
   get 'login', to:'sessions#new'

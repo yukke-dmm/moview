@@ -1,0 +1,27 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+# 一意性を保てないから２つだとテストに失敗する。１つ消せばいけるけれど、後ほどベースのアカウントが入るのでなし！
+# コメントアウトで状況だけメモする。
+# one:
+#   name: MyString
+#   email: MyString
+#   employee_number: MyString
+
+# two:
+#   name: MyString
+#   email: MyString
+#   employee_number: MyString
