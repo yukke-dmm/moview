@@ -4,9 +4,15 @@
           <nav class="nav">
               <%= link_to "MOVIEW",root_path,id: "logo" %>
             <ul class="nav navbar-nav navbar-right">
-              <li><%= link_to "Home",root_path %></li>
-              <li><%= link_to "About",about_path %></li>
-              <li><%= link_to "Log in", '#' %></li>
+              <li><%= link_to "トップ",root_path %></li>
+
+              <% if logged_in? %>
+                <li><%= link_to "使い方",about_path %></li>
+                <li><%= link_to "ログアウト",logout_path,method: :delete %></li>
+              <% elsif %>
+                <li><%= link_to "ログイン",login_path%></li>
+              <% end %>
+
             </ul>
           </nav>
       </div>

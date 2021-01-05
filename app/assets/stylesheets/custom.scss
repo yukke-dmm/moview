@@ -1,6 +1,8 @@
 @import "bootstrap-sprockets";
 @import "bootstrap";
 
+/*----------全体---------*/
+
 * {
   margin: 0;
   padding: 0;
@@ -10,19 +12,17 @@ a {
   text-decoration: none;
 }
 
-.clearfix::after {
-  content: "";
-  display: block;
-  clear: both;
-}
-
 /*@mixin box_sizing {
   -moz-box-sizing:    border-box;
   -webkit-box-sizing: border-box;
   box-sizing:         border-box;
 }*/
 
-/* miscellaneous */
+.space {
+  padding:10px 0;
+}
+
+/*-------- miscellaneous ---------*/
 
 .debug_dump {
   clear: both;
@@ -46,7 +46,7 @@ input {
 /*!importantとは最優先で適用するという意味*/
 
 
-/*------新規ユーザー登録------*/
+/*---------新規ユーザー登録---------*/
 #error_explanation {
   color: red;
   ul {
