@@ -1,0 +1,11 @@
+# 属性名を日本語表記にする。
+ja:
+  activerecord:
+    models:
+      user: ユーザー
+    attributes:
+      user:
+        name: 名前
+        email: メールアドレス
+        employee_number: 社員番号
+        password: パスワード

@@ -5,6 +5,8 @@ Rails.application.routes.draw do
   get 'about' ,to:'static_pages#about'
   root 'static_pages#home'
   get '/signup',to: 'users#new'
+  post '/signup',to: 'users#create'
+  resources :users
 
 
 # ログイン機構
