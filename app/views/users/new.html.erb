@@ -1,29 +1,33 @@
 <% provide(:title,'Sign up')%>
+<% provide(:button_text,"アカウントを登録する")%>
 
 <h1>ユーザー登録</h1>
 
 <div class="row">
 	<div class="col-md-6 col-md-offset-3">
-		<%= form_for(@user,url: signup_path) do |f| %>
-			<%= render 'shared/error_message'%>
 
-			<%= f.label :name %>
-			<%= f.text_field :name %>
+		<%= render 'form' %>
 
-			<%= f.label :email %>
-			<%= f.email_field :email %>
+	<%#= form_for(@user,url: signup_path) do |f| %>
+			<%#= render 'shared/error_message',object: @user%>
 
-			<%= f.label :employee_number %>
-			<%= f.text_field :employee_number %>
+			<%#= f.label :name %>
+			<%#= f.text_field :name %>
 
-			<%= f.label :password %>
-			<%= f.password_field :password %>
+			<%#= f.label :email %>
+			<%#= f.email_field :email %>
 
-			<%= f.label :password_confirmation,"パスワード確認" %>
-			<%= f.password_field :password_confirmation %>
+			<%#= f.label :employee_number %>
+			<%#= f.text_field :employee_number %>
 
-			<%= f.submit "アカウントを登録する。", class: "btn btn-promary" %>
-		<% end %>
+			<%#= f.label :password %>
+			<%#= f.password_field :password %>
+
+			<%#= f.label :password_confirmation,"パスワード確認" %>
+			<%#= f.password_field :password_confirmation %>
+
+			<%#= f.submit yield(:button_text), class: "btn btn-promary" %>
+	<%# end %>
 	</div>
 </div>
 

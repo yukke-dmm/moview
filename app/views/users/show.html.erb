@@ -4,3 +4,6 @@ NUMBER:<%= @user.employee_number %><br>
 登録日:<%= @user.created_at %><br>
 更新日:<%= @user.updated_at %><br>
 現在時刻:<%= Time.now %>
+
+
+    <%= link_to "編集する", edit_user_path(@user) %>

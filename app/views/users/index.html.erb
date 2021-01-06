@@ -1,0 +1,33 @@
+<% provide(:title,'All users')%>
+<h1>ユーザー一覧</h1>
+
+<%= will_paginate %>
+
+
+		<table class="table table-borderless">
+			<thead class="thead-dark">
+				<tr>
+					<th>社員番号</th>
+					<th>会員名</th>
+					<th>メールアドレス</th>
+					<th>備考</th>
+				</tr>
+			</thead>
+
+			<tbody>
+				<% @users.each do |user| %>
+					<tr>
+						<td><%= user.employee_number %></td>
+						<td><%= user.name %></td>
+				    	<td><%= user.email %></td>
+				    	<td>
+				    		<%= link_to "進捗", user_path(user) %>
+				    		<%= link_to "編集", edit_user_path(user) %>
+				    	</td>
+					</tr>
+				<% end %>
+			</tbody>
+
+		</table>
+
+<%= will_paginate %>

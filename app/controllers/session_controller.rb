@@ -7,7 +7,7 @@ class SessionController < ApplicationController
   	user = User.find_by(email: params[:session][:email].downcase)
   	if user && user.authenticate(params[:session][:password])
   		log_in user
-  		redirect_to user
+  		redirect_to users_url
   	else
   		flash.now[:danger] = '入力した情報に誤りがあります。'
   		render 'new'
