@@ -35,3 +35,11 @@ User.create!(name:  "yamada",
                password:              password,
                password_confirmation: password)
 end
+
+4.times do |n|
+  title = "タイトルサンプル#{n+1}"
+  introduce = "説明サンプル#{n+1}"
+  Course.create!(title: title,
+                 introduce: introduce,
+                 user_id: "1")
+end

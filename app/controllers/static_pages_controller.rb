@@ -3,6 +3,7 @@ before_action :logged_in_user, only: [:about]
 
 
   def home
+    @courses = Course.all
   end
 
   def about
