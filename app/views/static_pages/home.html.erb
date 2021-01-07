@@ -1,17 +1,8 @@
 <% provide(:title,"Home")%>
 
+
 		<div class="topimage">
 			<!-- パーシャルで会社画像 -->
 		</div>
-
-	<div class="row">
-
-		<div>
-			<% @courses.reverse_each do |course| %>
-					<%= attachment_image_tag course, :image_id , :fill, 158, 135, fallback: "no_image.jpg", size: '180x130' %>
-					<%= course.title %>
-					<%= course.introduce %>
-			<% end %>
-		</div>
-	</div>
-
+		<div class="line"></div>
+	<%= render "courses/course" %>

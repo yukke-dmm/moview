@@ -19,8 +19,49 @@ a {
 }*/
 
 .space {
-  padding:10px 0;
+  padding:15px 0;
 }
+
+.flex{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+.line{
+  padding-top: 15px;
+  margin-bottom: 15px;
+  border-bottom:solid 5px darkgray;
+}
+
+/*-------- course --------*/
+.card{
+  margin:10px;
+  border-radius: 3px;
+  width:200px;
+  height:300px;
+  background-size: cover;
+  background-position: center;
+  background-color: lightyellow;
+}
+
+.card-body{
+  padding:10px ;
+  height:150px;
+  position:relative;
+}
+
+.card-text{
+  border-bottom: solid 3px #ECEff1;
+}
+
+.card-introduce > p{
+  font-size:5px;
+  line-height:10px;
+  color: green;
+}
+
 
 /*-------- miscellaneous ---------*/
 

@@ -33,7 +33,7 @@ before_action :admin_user
     @user = User.find(params[:id])
     if @user.update_attributes(user_params)
       flash[:success] = "更新に成功しました"
-      redirect_to @user
+      redirect_to users_url
     else
       render 'edit'
     end

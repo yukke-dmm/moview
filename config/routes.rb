@@ -12,7 +12,7 @@ Rails.application.routes.draw do
   delete '/logout',  to: 'session#destroy'
 
   resources :users
-  resources :courses,only:[:new,:create,:show,:destroy]
+  resources :courses,only:[:new,:create,:show,:destroy,:edit,:update,:index]
 
 # ログイン機構
 

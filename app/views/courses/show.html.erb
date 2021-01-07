@@ -1,0 +1,19 @@
+<div class="row">
+	<div class="col-md-4 col-sm-4 col-xs-4">
+		<%= attachment_image_tag @course, :course_image , :fill, 158, 135, fallback: "no_image.jpg", size: '360x260' %>
+	</div>
+	<div class="col-md-6 col-sm-6 col-xs-6">
+		<h1 class="card-text"><%= @course.title %></h1>
+		<div><%= @course.introduce %></div>
+	</div>
+	<div class="col-md-2 col-sm-2 col-xs-2">
+		<% if logged_in? %>
+			<% if current_user.admin? %>
+				<%= link_to "コースを編集する", edit_course_path(@course),class: "btn btn-primary" %>
+			<% else %>
+
+			<% end %>
+		<% end %>
+	</div>
+</div>
+<div class="line"></div>

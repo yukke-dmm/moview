@@ -9,7 +9,7 @@
               <% if logged_in? %>
                 <% if current_user.admin? %>
                     <li><%= link_to "ユーザー一覧",users_path %></li>
-                    <li><%= link_to "コース一覧","#" %></li>
+                    <li><%= link_to "コース一覧",courses_path %></li>
                     <li><%= link_to "ログアウト",logout_path,method: :delete %></li>
                 <% else %>
                     <li><%= link_to "使い方",about_path %></li>

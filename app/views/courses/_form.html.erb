@@ -1,0 +1,21 @@
+		<%= form_for(@course) do |f| %>
+
+			<%= f.label :image %>
+            <%= f.attachment_field :image %>
+
+			<%= f.label :digest_movie_url %>
+			<%= f.text_field :digest_movie_url %>
+
+			<%= f.label :title %>
+			<%= f.text_field :title %>
+
+			<%= f.label :introduce %>
+			<%= f.text_area :introduce %>
+
+			<%= f.submit yield(:button_text), class: "btn btn-primary" %>
+		<% end %>
+
+<!--     t.string "course_image"
+    t.string "digest_movie_url"
+    t.string "title"
+    t.string "introduce" -->

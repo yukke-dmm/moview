@@ -36,9 +36,9 @@ User.create!(name:  "yamada",
                password_confirmation: password)
 end
 
-4.times do |n|
+10.times do |n|
   title = "タイトルサンプル#{n+1}"
-  introduce = "説明サンプル#{n+1}"
+  introduce = "説明サンプル#{n+1}説明サンプル#{n+1}説明サンプル#{n+1}説明サンプル#{n+1}説明サンプル#{n+1}説明サンプル#{n+1}説明サンプル#{n+1}説明サンプル#{n+1}"
   Course.create!(title: title,
                  introduce: introduce,
                  user_id: "1")

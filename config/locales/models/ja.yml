@@ -9,3 +9,19 @@ ja:
         email: メールアドレス
         employee_number: 社員番号
         password: パスワード
+
+ja:
+  activerecord:
+    models:
+      course: ユーザー
+    attributes:
+      course:
+        image_id: コース画像
+        digest_movie_url: ダイジェスト動画URL
+        title: タイトル
+        introduce: 説明文
+
+    # t.string "course_image"
+    # t.string "digest_movie_url"
+    # t.string "title"
+    # t.string "introduce"
