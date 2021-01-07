@@ -1,24 +1,27 @@
 # README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+##コンセプト
 
-Things you may want to cover:
+「動画教材を用いた社員の事前研修」
 
-* Ruby version
+##使い方
 
-* System dependencies
+```
+$ git clone git@github.com:yukke-dmm/moview.git
+```
 
-* Configuration
+```
+$ cd moview
+```
 
-* Database creation
+```
+$ bundle install --without production
+```
 
-* Database initialization
+```
+$ rails db:migrate
+```
 
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+```
+$ rails db:seed
+```
