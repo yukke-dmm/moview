@@ -43,3 +43,20 @@ end
                  introduce: introduce,
                  user_id: "1")
 end
+
+10.times do |n|
+  title = "セクション#{n+1}"
+  introduce = "セクション#{n+1}"
+  course_id = "#{n+1}"
+  Section.create!(title: title,
+                  introduce: introduce,
+                  course_id: course_id)
+end
+
+5.times do |n|
+  title = "セクション#{n+1}"
+  introduce = "セクション#{n+1}"
+  Section.create!(title: title,
+                  introduce: introduce,
+                  course_id: "1")
+end

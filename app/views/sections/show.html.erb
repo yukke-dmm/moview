@@ -1,0 +1,40 @@
+<nav aria-label="breadcrumb">
+  <ol class="breadcrumb">
+    <li class="breadcrumb-item"><%= link_to "トップ",root_path %></li>
+    <li class="breadcrumb-item"><%= link_to "コース詳細",course_path(@section.course_id)%></li>
+    <li class="breadcrumb-item active" aria-current="page">セクション詳細</li>
+  </ol>
+</nav>
+
+
+<div class="row">
+	<h1 class="card-text"><%= @section.title %>
+	<% if logged_in? %>
+		<% if current_user.admin? %>
+			<%= link_to "セクションを編集する", edit_section_path(@section),class: "btn btn-primary right" %>
+		<% else %>
+			<% end %>
+	<% end %>
+	</h1>
+</div>
+
+<br>
+
+<div class="row">
+	<%= @section.introduce %>
+</div>
+
+
+
+<div class="movie row">
+	<!-- ここに動画が入る予定 -->
+</div>
+
+
+<div class="line"></div>
+
+
+<div>
+	<%#= render "sections/section"%>
+	<!-- ここはレクチャーの一覧を出すようにする。 -->
+</div>

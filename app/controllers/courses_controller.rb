@@ -10,6 +10,7 @@ class CoursesController < ApplicationController
 
 	def show
 		@course = Course.find(params[:id])
+		@sections = @course.sections.all
 	end
 
 	def create
@@ -27,23 +28,24 @@ class CoursesController < ApplicationController
     	@course = Course.find(params[:id])
     end
 
-  def update
-    @course = Course.find(params[:id])
-    if @course.update_attributes(course_params)
-      flash[:success] = "更新に成功しました"
-      redirect_to @course
-    else
-      render 'edit'
+    def update
+      @course = Course.find(params[:id])
+      if @course.update_attributes(course_params)
+        flash[:success] = "更新に成功しました"
+        redirect_to @course
+      else
+        render 'edit'
+      end
     end
-  end
 
-  def destroy
-    Course.find(params[:id]).destroy
-    flash[:success] = "削除しました"
-    redirect_to courses_url
-  end
+    def destroy
+      Course.find(params[:id]).destroy
+      flash[:success] = "削除しました"
+      redirect_to courses_url
+    end
 
 private
+
 	def course_params
 		params.require(:course).permit(:course_image, :digest_movie_url, :title, :introduce, :image)
 	end

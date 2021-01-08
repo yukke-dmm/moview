@@ -1,6 +1,5 @@
 Rails.application.routes.draw do
 
-
 # 基本ページ
   get '/about' ,to:'static_pages#about'
   root 'static_pages#home'
@@ -13,6 +12,8 @@ Rails.application.routes.draw do
 
   resources :users
   resources :courses,only:[:new,:create,:show,:destroy,:edit,:update,:index]
+  resources :sections,only:[:new,:create,:show,:destroy,:edit,:update]
+  resources :sections,only:[:new,:create,:destroy,:edit,:update,]
 
 # ログイン機構
 

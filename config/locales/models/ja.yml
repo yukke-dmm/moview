@@ -13,7 +13,7 @@ ja:
 ja:
   activerecord:
     models:
-      course: ユーザー
+      course: コース
     attributes:
       course:
         image_id: コース画像
@@ -21,6 +21,16 @@ ja:
         title: タイトル
         introduce: 説明文
 
+
+ja:
+  activerecord:
+    models:
+      section: セクション
+    attributes:
+      section:
+        course_id: コース
+        title: タイトル
+        introduce: 説明文
     # t.string "course_image"
     # t.string "digest_movie_url"
     # t.string "title"
