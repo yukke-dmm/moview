@@ -1,0 +1,19 @@
+		<%= form_for(@lecture) do |f| %>
+
+            <%= f.label :section_id %>
+            <%= f.collection_select :section_id, Section.all, :id,:title,include_blank: "選択して下さい" %>
+
+			<%= f.label :title %>
+			<%= f.text_field :title %>
+
+			<%= f.label :introduce %>
+			<%= f.text_area :introduce %>
+
+			<%= f.label :lecture_number %>
+			<%= f.text_area :lecture_number %>
+
+			<%= f.label :lecture_movie_url %>
+			<%= f.text_area :lecture_movie_url %>
+
+			<%= f.submit yield(:button_text), class: "btn btn-primary" %>
+		<% end %>

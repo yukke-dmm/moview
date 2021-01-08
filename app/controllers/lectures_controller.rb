@@ -1,5 +1,11 @@
 class LecturesController < ApplicationController
+
+  def index
+    @lectures = Lecture.all
+  end
+
   def new
+    @lecture = Lecture.new
   end
 
   def create
@@ -13,9 +19,6 @@ class LecturesController < ApplicationController
   end
 
   def edit
-  end
-
-  def edit
     @lecture = Lecture.find(params[:id])
   end
 
@@ -23,7 +26,7 @@ class LecturesController < ApplicationController
     @lecture = Lecture.find(params[:id])
     if @lecture.update_attributes(lecture_params)
       flash[:success] = "更新に成功しました"
-      redirect_to @lecture
+      redirect_to lectures_url
     else
       render 'edit'
     end
@@ -39,8 +42,9 @@ class LecturesController < ApplicationController
 private
 
   def lecture_params
-    params.require(:lecture).permit(:title, :introduce,:section_id)
+    params.require(:lecture).permit(:title, :introduce,:section_id,:lecture_number,:lecture_movie_url)
   end
+
 
   def logged_in_user
     unless logged_in?
