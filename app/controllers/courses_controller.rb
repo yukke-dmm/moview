@@ -1,31 +1,31 @@
 class CoursesController < ApplicationController
 
-	def index
-		@courses = Course.all
-	end
+  def index
+    @courses = Course.all
+  end
 
-	def new
-		@course = Course.new
-	end
+  def new
+    @course = Course.new
+  end
 
-	def show
-		@course = Course.find(params[:id])
-		@sections = @course.sections.all
-	end
+  def show
+    @course = Course.find(params[:id])
+    @sections = @course.sections.all
+  end
 
-	def create
-	  @course = Course.new(course_params)
-	  @course.user_id = current_user.id
-	  if @course.save
-	  	flash[:success] = "登録に成功しました"
-	  	redirect_to courses_url
-	  else
-	  	render 'new'
-	  end
-	end
+  def create
+    @course = Course.new(course_params)
+    @course.user_id = current_user.id
+    if @course.save
+      flash[:success] = "登録に成功しました"
+      redirect_to courses_url
+    else
+      render 'new'
+    end
+  end
 
-	def edit
-    	@course = Course.find(params[:id])
+  def edit
+      @course = Course.find(params[:id])
     end
 
     def update
@@ -46,8 +46,8 @@ class CoursesController < ApplicationController
 
 private
 
-	def course_params
-		params.require(:course).permit(:course_image, :digest_movie_url, :title, :introduce, :image)
-	end
+  def course_params
+    params.require(:course).permit(:course_image, :digest_movie_url, :title, :introduce, :image)
+  end
 
 end

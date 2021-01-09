@@ -10,6 +10,8 @@ Rails.application.routes.draw do
   post   '/login',   to: 'session#create'
   delete '/logout',  to: 'session#destroy'
 
+  get '/courses/:course_id/section_new', to: 'sections#new'
+
   resources :users
   resources :courses,only:[:new,:create,:show,:destroy,:edit,:update,:index]
   resources :sections,only:[:new,:create,:show,:destroy,:edit,:update]
