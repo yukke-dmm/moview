@@ -11,6 +11,7 @@ Rails.application.routes.draw do
   delete '/logout',  to: 'session#destroy'
 
   get '/courses/:course_id/section_new', to: 'sections#new'
+  get '/sections/:section_id/lecture_new', to: 'lectures#new'
 
   resources :users
   resources :courses,only:[:new,:create,:show,:destroy,:edit,:update,:index]

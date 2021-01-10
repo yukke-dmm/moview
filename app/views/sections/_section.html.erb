@@ -1,44 +1,48 @@
 <div class="row">
-	<div class="col-md-10">
-		<h1>セクション一覧</h1>
-	</div>
-	<div class="col-md-2">
-		<% if logged_in? %>
-			<% if current_user.admin? %>
-				<%= link_to "セクションを追加する", "/courses/#{params[:id]}/section_new",class: "btn btn-primary" %>
-			<% else %>
+  <div class="col-md-10">
+    <h1>セクション一覧</h1>
+  </div>
+  <div class="col-md-2">
+    <% if logged_in? %>
+      <% if current_user.admin? %>
+        <%= link_to "セクションを追加する", "/courses/#{params[:id]}/section_new",class: "btn btn-primary" %>
+      <% else %>
 
-			<% end %>
-		<% end %>
-	</div>
+      <% end %>
+    <% end %>
+  </div>
 </div>
 
 <br>
 
 <% i = 0 %>
 
-	<div class="panel-group" id="accordion">
-		<% @sections.each do |sections| %>
-			  <div class="panel panel-default">
-			    <div class="panel-heading">
-			      <h4 class="panel-title">
-			      		<a data-toggle="collapse" data-parent="#accordion" href="#collapse<%= i = i + 1 %>">
-				        	<i class="fas fa-arrow-alt-circle-down">　　　</i>
-			        	<!-- <i class="far fa-arrow-alt-circle-up"></i> -->
-				        </a>
-							<%= link_to section_path(sections) do %>
-								<%= sections.title %>　　　　　<%= sections.introduce %>
-							<% end %>
-			      </h4>
-			    </div>
-			    <!-- 上のiの計算で数字が変わっているため、ここをi+1にすると連動しなくなるので注意 -->
-			    <div id="collapse<%= i %>" class="panel-collapse collapse out">
-			      <div class="panel-body">レクチャー</div>
-			      <div class="panel-body">レクチャー</div>
-			      <div class="panel-body">レクチャー</div>
-			      <div class="panel-body">レクチャー</div>
-			    </div>
-			  </div>
-		<% end %>
-	</div>
+  <div class="panel-group" id="accordion">
+    <% @sections.each do |sections| %>
+        <div class="panel panel-default">
+          <div class="panel-heading">
+            <h4 class="panel-title">
+                <a data-toggle="collapse" data-parent="#accordion" href="#collapse<%= i = i + 1 %>">
+                  <i class="fas fa-arrow-alt-circle-down">　　　</i>
+                <!-- <i class="far fa-arrow-alt-circle-up"></i> -->
+                </a>
+              <%= link_to section_path(sections) do %>
+                <%= sections.title %>  <%= sections.introduce %>
+              <% end %>
+              <%= link_to "レクチャーを追加する", "/sections/#{sections.id}/lecture_new",class: "btn btn-primary" %>
+            </h4>
+          </div>
+          <!-- 上のiの計算で数字が変わっているため、ここをi+1にすると連動しなくなるので注意 -->
+          <div id="collapse<%= i %>" class="panel-collapse collapse out">
+            <% sections.lectures.each do |lecture| %>
+              <%= lecture.title %>
+            <% end %>
+            <%# <div class="panel-body">レクチャー</div>
+            <div class="panel-body">レクチャー</div>
+            <div class="panel-body">レクチャー</div>
+            <div class="panel-body">レクチャー</div> %>
+          </div>
+        </div>
+    <% end %>
+  </div>
 

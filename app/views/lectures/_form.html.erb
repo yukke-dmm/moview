@@ -1,7 +1,9 @@
 		<%= form_for(@lecture) do |f| %>
 
-            <%= f.label :section_id %>
-            <%= f.collection_select :section_id, Section.all, :id,:title,include_blank: "選択して下さい" %>
+            <%# <%= f.label :section_id %>
+            <%# <%= f.collection_select :section_id, Section.all, :id,:title,include_blank: "選択して下さい" %>
+
+      <%= f.hidden_field :section_id, :value => params[:section_id] %>
 
 			<%= f.label :title %>
 			<%= f.text_field :title %>
