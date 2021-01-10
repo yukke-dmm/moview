@@ -13,7 +13,7 @@ class SectionsController < ApplicationController
     @section = Section.new(section_params)
     if @section.save
       flash[:success] = "登録に成功しました"
-      redirect_to sections_url
+      redirect_to course_url(@section.course_id)
     else
       render 'new'
     end
