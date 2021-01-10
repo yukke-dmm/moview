@@ -26,15 +26,31 @@
 
 
 
-<div class="movie row">
+<div class="movie　row">
+	<iframe width="560" height="315" src="<%= @lecture.lecture_movie_url %>" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 	<!-- ここに動画が入る予定 -->
+	<br>
+	<%= @lecture.title %>  <%= @lecture.introduce %>
 </div>
-
 
 <div class="line"></div>
 
 
 <div>
+
+				    <% @lectures.each do |lecture|%>
+			        	<div class="panel-body">
+			        		<%= link_to section_path do %>
+			        			<%= lecture.title %>
+			        		<% end %>
+							<% if logged_in? %>
+								<% if current_user.admin? %>
+									<%= link_to "レクチャーを編集する",edit_lecture_path(lecture),class: "btn btn-primary" %>
+								<% else %>
+								<% end %>
+							<% end %>
+						</div>
+			        <% end %>
 	<%#= render "sections/section"%>
 	<!-- ここはレクチャーの一覧を出すようにする。 -->
 </div>

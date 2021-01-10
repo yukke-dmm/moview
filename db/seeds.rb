@@ -60,3 +60,27 @@ end
                   introduce: introduce,
                   course_id: "1")
 end
+
+10.times do |n|
+  title = "レクチャー#{n+1}"
+  introduce = "レクチャー#{n+1}"
+  section_id = "#{n+1}"
+  lecture_movie_url ="https://www.youtube.com/embed/N4k2SKL0vvM"
+  Lecture.create!(title: title,
+                  introduce: introduce,
+                  lecture_movie_url: lecture_movie_url,
+                  section_id: section_id)
+end
+
+5.times do |n|
+  title = "レクチャー#{n+1}"
+  introduce = "レクチャー#{n+1}"
+  lecture_movie_url ="https://www.youtube.com/embed/sk5GTStBtII"
+  Lecture.create!(title: title,
+                  introduce: introduce,
+                  lecture_movie_url: lecture_movie_url,
+                  section_id: "1")
+end
+
+
+

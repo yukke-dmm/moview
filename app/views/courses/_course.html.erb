@@ -1,3 +1,20 @@
+<!-- 
+<script>
+	var $flex = $('.flex'),   
+	    emptyCells = [],
+	    i;
+
+	// 子パネル (li.cell) の数だけ空の子パネル (li.cell.is-empty) を追加する。
+	for (i = 0; i < $flex.find('.cell').length; i++) {
+	    emptyCells.push($('<div>', { class: 'cell is-empty' }));
+	}
+
+	$flex.append(emptyCells);
+</script>
+
+
+
+ -->
 		<div class="flex">
 			<% @courses.each do |courses| %>
 				<%= link_to course_path(courses) do %>

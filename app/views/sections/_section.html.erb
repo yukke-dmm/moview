@@ -5,7 +5,7 @@
 	<div class="col-md-2">
 		<% if logged_in? %>
 			<% if current_user.admin? %>
-				<%= link_to "セクションを追加する",new_section_path,class: "btn btn-primary" %>
+				<%= link_to "セクションを追加する","/courses/#{params[:id]}/section_new",class: "btn btn-primary" %>
 			<% else %>
 
 			<% end %>
@@ -18,7 +18,7 @@
 <% i = 0 %>
 
 	<div class="panel-group" id="accordion">
-		<% @sections.each do |sections| %>
+		<% @sections.each do |section| %>
 			  <div class="panel panel-default">
 			    <div class="panel-heading">
 			      <h4 class="panel-title">
@@ -26,17 +26,33 @@
 				        	<i class="fas fa-arrow-alt-circle-down">　　　</i>
 			        	<!-- <i class="far fa-arrow-alt-circle-up"></i> -->
 				        </a>
-							<%= link_to section_path(sections) do %>
-								<%= sections.title %>　　　　　<%= sections.introduce %>
+								<%= section.title %>　　　　　<%= section.introduce %>
+							<% if logged_in? %>
+								<% if current_user.admin? %>
+									<%= link_to "セクションを編集する",edit_section_path(section),class: "btn btn-primary" %>
+
+									<%= link_to "レクチャーを追加する","/sections/#{params[:section_id]}/lecture_new",class: "btn btn-primary" %>
+								<% else %>
+								<% end %>
 							<% end %>
 			      </h4>
 			    </div>
 			    <!-- 上のiの計算で数字が変わっているため、ここをi+1にすると連動しなくなるので注意 -->
 			    <div id="collapse<%= i %>" class="panel-collapse collapse out">
-			      <div class="panel-body">レクチャー</div>
-			      <div class="panel-body">レクチャー</div>
-			      <div class="panel-body">レクチャー</div>
-			      <div class="panel-body">レクチャー</div>
+			    	<% section.lectures.each do |lecture|%>
+			        	<div class="panel-body">
+			        		<%= link_to section_path(lecture) do %>
+			        			<%= lecture.title %>
+			        		<% end %>
+							<% if logged_in? %>
+								<% if current_user.admin? %>
+									<%= link_to "レクチャーを編集する",edit_lecture_path(lecture),class: "btn btn-primary" %>
+								<% else %>
+								<% end %>
+							<% end %>
+						</div>
+			        <% end %>
+
 			    </div>
 			  </div>
 		<% end %>

@@ -13,7 +13,7 @@ class SectionsController < ApplicationController
     @section = Section.new(section_params)
     if @section.save
       flash[:success] = "登録に成功しました"
-      redirect_to sections_url
+      redirect_to course_url(@section.course_id)
     else
       render 'new'
     end
@@ -21,7 +21,8 @@ class SectionsController < ApplicationController
 
   def show
     @section = Section.find(params[:id])
-    # @lectures = @section.lectures.all
+    @lecture = Lecture.find(params[:id])
+    @lectures = @section.lectures.all
   end
 
   def edit
@@ -32,7 +33,7 @@ class SectionsController < ApplicationController
     @section = Section.find(params[:id])
     if @section.update_attributes(section_params)
       flash[:success] = "更新に成功しました"
-      redirect_to @section
+      redirect_to course_url(@section.course_id)
     else
       render 'edit'
     end

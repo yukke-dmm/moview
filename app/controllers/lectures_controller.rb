@@ -12,7 +12,7 @@ class LecturesController < ApplicationController
     @lecture = Lecture.new(lecture_params)
     if @lecture.save
       flash[:success] = "登録に成功しました"
-      redirect_to lectures_url
+      redirect_to course_url(@lecture.section.course_id)
     else
       render 'new'
     end
@@ -26,7 +26,7 @@ class LecturesController < ApplicationController
     @lecture = Lecture.find(params[:id])
     if @lecture.update_attributes(lecture_params)
       flash[:success] = "更新に成功しました"
-      redirect_to lectures_url
+      redirect_to course_url(@lecture.section.course_id)
     else
       render 'edit'
     end

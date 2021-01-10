@@ -22,12 +22,17 @@ a {
   padding:15px 0;
 }
 
+
+
 .flex{
     display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-wrap: wrap;
+    justify-content:flex-start;
+    flex-flow:row wrap;
+    margin-left:33px;
 }
+
+
+
 
 .line{
   padding-top: 15px;
@@ -71,7 +76,9 @@ h1{
 .movie{
   margin: 30px;
   height:400px;
+  width:600px;
   background-color:skyblue;
+  position:center;
 }
 
 
