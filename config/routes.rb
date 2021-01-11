@@ -15,8 +15,8 @@ Rails.application.routes.draw do
 
   resources :users
   resources :courses,only:[:new,:create,:show,:destroy,:edit,:update,:index]
-  resources :sections,only:[:new,:create,:show,:destroy,:edit,:update]
-  resources :lectures,only:[:new,:create,:destroy,:edit,:update,:index]
+  resources :sections,only:[:create,:show,:destroy,:edit,:update]
+  resources :lectures,only:[:create,:destroy,:edit,:update,:index]
 
 # ログイン機構
 
