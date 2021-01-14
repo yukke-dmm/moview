@@ -1,18 +1,19 @@
-		<%= form_for(@lecture) do |f| %>
+<%= form_for(@lecture) do |f| %>
 
-            <%= f.hidden_field :section_id, :value => params[:section_id] %>
+    <%= f.hidden_field :section_id, :value => params[:section_id] %>
 
-			<%= f.label :title %>
-			<%= f.text_field :title %>
+	<%= f.label :title,"タイトル" %>
+	<%= f.text_field :title %>
 
-			<%= f.label :introduce %>
-			<%= f.text_area :introduce %>
+	<%= f.label :introduce,"説明文"%>
+	<%= f.text_area :introduce %>
 
-			<%= f.label :lecture_number %>
-			<%= f.text_area :lecture_number %>
+	<%= f.label :lecture_number,"レクチャー番号" %>
+	<%= f.text_area :lecture_number %>
 
-			<%= f.label :lecture_movie_url %>
-			<%= f.text_area :lecture_movie_url %>
+	<%= f.label :lecture_movie_url,"レクチャー動画URL"%>
+	<%= f.text_area :lecture_movie_url %>
 
-			<%= f.submit yield(:button_text), class: "btn btn-primary" %>
-		<% end %>
+	<%= f.submit yield(:button_text), class: "btn btn-primary" %>
+
+<% end %>

@@ -1,14 +1,14 @@
-		<%= form_for(@section) do |f| %>
-            
+<%= form_for(@section) do |f| %>
             <%#= f.label :course_id %>
             <%#= f.collection_select :course_id, Course.all, :id,:title,include_blank: "選択して下さい" %>
-            <%= f.hidden_field :course_id, :value => params[:course_id] %>
+    <%= f.hidden_field :course_id, :value => params[:course_id] %>
 
-			<%= f.label :title %>
-			<%= f.text_field :title %>
+	<%= f.label :title,"タイトル" %>
+	<%= f.text_field :title %>
 
-			<%= f.label :introduce %>
-			<%= f.text_area :introduce %>
+	<%= f.label :introduce,"説明文"%>
+	<%= f.text_area :introduce %>
 
-			<%= f.submit yield(:button_text), class: "btn btn-primary" %>
-		<% end %>
+	<%= f.submit yield(:button_text), class: "btn btn-primary" %>
+
+<% end %>

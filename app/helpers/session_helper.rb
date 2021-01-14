@@ -14,6 +14,14 @@ module SessionHelper
 		end
 	end
 
+	# def admin_user
+	# 	if session[:admin_id]
+	# 		# 「A ||= B」は、「A」が偽であれば「A」に「B」の内容が代入されます。
+	# 		# カレントユーザーに値が入っていなけれ代入するということか？
+	# 		@current_user ||= User.find_by(id: session[:user_id])
+	# 	end
+	# end
+
 	def logged_in?
 		!current_user.nil?
 	end

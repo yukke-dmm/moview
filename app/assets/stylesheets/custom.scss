@@ -12,6 +12,10 @@ a {
   text-decoration: none;
 }
 
+li{
+  list-style: none;
+}
+
 /*@mixin box_sizing {
   -moz-box-sizing:    border-box;
   -webkit-box-sizing: border-box;
@@ -23,7 +27,6 @@ a {
 }
 
 
-
 .flex{
     display: flex;
     justify-content:flex-start;
@@ -31,7 +34,10 @@ a {
     margin-left:33px;
 }
 
-
+.header-name{
+  padding:15px;
+  font-size:14px;
+}
 
 
 .line{
@@ -44,6 +50,22 @@ h1{
   margin:0 auto;
 }
 
+.right{
+  float:right;
+}
+
+.btn{
+  padding:2px;
+  color:white;
+}
+
+.col-md-2{
+  text-align:center;
+}
+
+.panel-title{
+  font-size:18px;
+}
 /*-------- course --------*/
 .card{
   margin:10px;

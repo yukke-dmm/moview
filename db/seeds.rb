@@ -45,8 +45,8 @@ end
 end
 
 10.times do |n|
-  title = "セクション#{n+1}"
-  introduce = "セクション#{n+1}"
+  title = "セクション0"
+  introduce = "説明(セクション)0"
   course_id = "#{n+1}"
   Section.create!(title: title,
                   introduce: introduce,
@@ -55,15 +55,15 @@ end
 
 5.times do |n|
   title = "セクション#{n+1}"
-  introduce = "セクション#{n+1}"
+  introduce = "説明(セクション)#{n+1}"
   Section.create!(title: title,
                   introduce: introduce,
                   course_id: "1")
 end
 
 10.times do |n|
-  title = "レクチャー#{n+1}"
-  introduce = "レクチャー#{n+1}"
+  title = "レクチャー0"
+  introduce = "説明(レクチャー)0"
   section_id = "#{n+1}"
   lecture_movie_url ="https://www.youtube.com/embed/N4k2SKL0vvM"
   Lecture.create!(title: title,
@@ -74,7 +74,7 @@ end
 
 5.times do |n|
   title = "レクチャー#{n+1}"
-  introduce = "レクチャー#{n+1}"
+  introduce = "説明(レクチャー)#{n+1}"
   lecture_movie_url ="https://www.youtube.com/embed/sk5GTStBtII"
   Lecture.create!(title: title,
                   introduce: introduce,

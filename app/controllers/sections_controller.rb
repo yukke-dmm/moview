@@ -20,9 +20,11 @@ class SectionsController < ApplicationController
   end
 
   def show
-    @section = Section.find(params[:id])
-    @lecture = Lecture.find(params[:id])
-    @lectures = @section.lectures.all
+    @section = Section.find(params[:section_id])
+    @course = Course.find(@section.course_id)
+    @sections = @course.sections.all
+    @lecture = Lecture.find(params[:lecture_id])
+    # @lectures = @section.lectures.all
   end
 
   def edit
