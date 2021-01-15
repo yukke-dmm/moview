@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
 
+  get 'admins/new'
   namespace :admin do
     resources :users
   end
