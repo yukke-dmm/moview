@@ -1,0 +1,22 @@
+<% provide(:title, "Edit course")%>
+<% provide(:button_text, "コース情報を更新する")%>
+<% provide(:admin_path,admin_course_path)%>
+
+
+<div class="row">
+	<div class="col-md-8">
+		<h1>コース情報を更新する。</h1>
+	</div>
+	<div class="col-md-4">
+		    <%= link_to "削除する",admin_course_path(@course), method: :delete,
+		                                  data: { confirm: "本当に削除しますか？" },class: "btn btn-danger" %>
+	</div>
+</div>
+
+<div class="line"></div>
+
+<div class="row">
+	<div class="col-md-6 col-md-offset-3">
+		<%= render 'form' %>
+	</div>
+</div>

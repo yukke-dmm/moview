@@ -1,0 +1,57 @@
+<nav aria-label="breadcrumb">
+    <ol class="breadcrumb">
+    	<li class="breadcrumb-item"><%= link_to "コース詳細",admin_course_path(@section.course_id)%></li>
+    	<li class="breadcrumb-item active" aria-current="page">セクション詳細</li>
+    </ol>
+</nav>
+
+
+<div class="row">
+	<h1 class="card-text"><%= @section.title %>
+				<%= link_to "セクションを編集する", edit_admin_section_path(@section),class: "btn btn-primary right" %>
+	</h1>
+</div>
+
+<br>
+
+<div class="row">
+	<%= @section.introduce %>
+</div>
+
+
+<div class="movie　row">
+	<iframe width="560" height="315" src="<%= @lecture.lecture_movie_url %>" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+	<br>
+
+	<%= @lecture.title %>  <%= @lecture.introduce %>
+</div>
+
+	<div class="row">
+<!-- 		<div class="col-md-2"></div> -->
+		<div class="col-md-2">
+			<%= link_to "戻る","#",class: "btn btn-primary" %>
+			<% if @lecture.previous.present? %>
+				<%= link_to "PREV",admin_lec_path(@section,@lecture.previous.id), class: "btn_arrow_back"%>
+			<% end %>
+		</div>
+
+	    <div class="col-md-2"></div>
+
+		<div class="col-md-2">
+			<%= link_to "次へ","#",class: "btn btn-primary" %>
+			<% if @lecture.next.present? %>
+				<%= link_to "NEXT",admin_lec_path(@section,@lecture.next.id), class: "btn_arrow" %>
+			<% end %>
+		</div>
+	</div>
+
+
+
+
+<div class="line"></div>
+
+
+<div>
+	<%= render "admin/sections/section" %>
+</div>
+

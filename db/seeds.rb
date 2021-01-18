@@ -6,14 +6,20 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 
-User.create!(name:  "morita",
+Admin.create!(name:  "morita",
              email: "morita@morita.com",
-             employee_number: "1",
              password:              "morita",
              password_confirmation: "morita",
              admin: true)
-             # activated: true,
-             # activated_at: Time.zone.now)
+
+# User.create!(name:  "morita",
+#              email: "morita@morita.com",
+#              employee_number: "1",
+#              password:              "morita",
+#              password_confirmation: "morita",
+#              admin: true)
+#              # activated: true,
+#              # activated_at: Time.zone.now)
 
 User.create!(name:  "yamada",
              email: "yamada@yamada.com",
@@ -41,7 +47,7 @@ end
   introduce = "説明サンプル#{n+1}説明サンプル#{n+1}説明サンプル#{n+1}説明サンプル#{n+1}説明サンプル#{n+1}説明サンプル#{n+1}説明サンプル#{n+1}説明サンプル#{n+1}"
   Course.create!(title: title,
                  introduce: introduce,
-                 user_id: "1")
+                 admin_id: "1")
 end
 
 10.times do |n|
