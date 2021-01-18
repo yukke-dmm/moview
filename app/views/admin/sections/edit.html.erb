@@ -1,0 +1,21 @@
+<% provide(:title, "Edit section")%>
+<% provide(:button_text, "セクション情報を更新する")%>
+<% provide(:admin_path,admin_section_path)%>
+
+<div class="row">
+	<div class="col-md-8">
+		<h1>セクション情報を更新する。</h1>
+	</div>
+	<div class="col-md-4">
+		    <%= link_to "削除する",admin_section_path(@section), method: :delete,
+		                                  data: { confirm: "本当に削除しますか？" },class: "btn btn-danger" %>
+	</div>
+</div>
+
+<div class="line"></div>
+
+<div class="row">
+	<div class="col-md-6 col-md-offset-3">
+		<%= render 'form' %>
+	</div>
+</div>

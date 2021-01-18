@@ -1,5 +1,5 @@
 class User < ApplicationRecord
-	has_many :courses
+	# has_many :courses
   has_many :is_completed_lectures
 
 	before_save { email.downcase! }
