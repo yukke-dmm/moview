@@ -19,11 +19,14 @@ class Admin::SectionsController < ApplicationController
   end
 
   def show
-    @section = Section.find(params[:section_id])
+    @section = Section.includes(:lectures).find(params[:section_id])
     @course = Course.find(@section.course_id)
     @sections = @course.sections.all
     @lecture = Lecture.find(params[:lecture_id])
     # @lectures = @section.lectures.all
+
+    @lecture_ids = @section.lectures.map{ |lecture| lecture.id }
+    @lecture_index = @lecture_ids.index(@lecture.id)
   end
 
   def edit
