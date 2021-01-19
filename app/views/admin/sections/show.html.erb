@@ -34,13 +34,7 @@
         <%= link_to "PREV", admin_lec_path(@section, @lecture_ids[@lecture_index.to_i - 1]), class: "btn_arrow_back" %>
       <% end %>
     </div>
-    <% logger.debug('hogeeeeeeeeeeeeeeeeeeeeeeeeee') %>
-        <% logger.debug(@lecture_index.inspect) %>
-        <% logger.debug(@section.lectures.inspect) %>
-        <% logger.debug(@lecture_ids.inspect) %>
-
-      <div class="col-md-2"></div>
-
+    <div class="col-md-2"></div>
     <div class="col-md-2">
       <%= link_to "次へ","#",class: "btn btn-primary" %>
       <% if @lecture_index != @section.lectures.length - 1 %>
