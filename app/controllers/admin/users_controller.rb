@@ -10,9 +10,9 @@ before_action :admin_user
   def show
   	@user = User.find(params[:id])
     @courses = Course.all
-    @course = Course.find(params[:id])
-    @sections = @course.sections.all
-    @section = Section.find(params[:id])
+    # @course = Course.find(params[:id])
+    # @sections = @course.sections.all
+    # @section = Section.find(params[:id])
     @lectures = Lecture.all
   end
 
