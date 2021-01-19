@@ -23,7 +23,7 @@ Admin.create!(name:  "morita",
 
 User.create!(name:  "yamada",
              email: "yamada@yamada.com",
-             employee_number: "2",
+             employee_number: "1",
              password:              "yamada",
              password_confirmation: "yamada")
              # admin: true,
@@ -33,7 +33,7 @@ User.create!(name:  "yamada",
 99.times do |n|
   name  = Faker::Name.name
   email = "example-#{n+1}@morita.com"
-  employee_number = "#{n+3}"
+  employee_number = "#{n+2}"
   password = "password"
   User.create!(name:  name,
                email: email,
@@ -67,23 +67,27 @@ end
                   course_id: "1")
 end
 
-10.times do |n|
+15.times do |n|
   title = "レクチャー0"
+  lecture_number = "#{n+1}"
   introduce = "説明(レクチャー)0"
   section_id = "#{n+1}"
   lecture_movie_url ="https://www.youtube.com/embed/N4k2SKL0vvM"
   Lecture.create!(title: title,
                   introduce: introduce,
+                  lecture_number: lecture_number,
                   lecture_movie_url: lecture_movie_url,
                   section_id: section_id)
 end
 
 5.times do |n|
   title = "レクチャー#{n+1}"
+  lecture_number = "#{n+1}"
   introduce = "説明(レクチャー)#{n+1}"
   lecture_movie_url ="https://www.youtube.com/embed/sk5GTStBtII"
   Lecture.create!(title: title,
                   introduce: introduce,
+                  lecture_number: lecture_number,
                   lecture_movie_url: lecture_movie_url,
                   section_id: "1")
 end
