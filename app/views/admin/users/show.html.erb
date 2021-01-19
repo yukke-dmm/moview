@@ -10,8 +10,8 @@ NUMBER:<%= @user.employee_number %><br>
 
 <% @courses.each do |course|%>
     <%= course.title %> コース
-    進捗度： <%= @user.is_completed_lectures.count %>/<%= @section.lectures.count %>
-    最終更新日 <%#= is_completed_lectures.created_at(@user) %>
+    進捗度： <%= @user.is_completed_lectures.count %>/<%= @.lectures.count %>
+    最終更新日 <%#= is_completed_lectures.created_at %>
 
 	<% i = 0 %>
 

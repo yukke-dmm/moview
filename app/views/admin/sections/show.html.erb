@@ -32,6 +32,7 @@
 			<%= link_to "戻る","#",class: "btn btn-primary" %>
 			<% if @lecture.previous.present? %>
 				<%= link_to "PREV",admin_lec_path(@section,@lecture.previous.id), class: "btn_arrow_back"%>
+				<!-- こんな感じの使うのかな？ -->
 				<!-- @section_id.to_a  p array[@lecture.section.id_to.i] -->
 			<% end %>
 		</div>
