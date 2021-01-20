@@ -10,6 +10,7 @@ before_action :admin_user
   def show
   	@user = User.find(params[:id])
     @courses = Course.all
+    @checked = IsCompletedLecture.group(:user_id).order(created_at: :desc)
     # ここがおかしいのか
     # @course = Course.find(params[:id])
     # @sections = @course.sections.all
