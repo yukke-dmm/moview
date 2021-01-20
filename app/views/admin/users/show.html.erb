@@ -14,9 +14,7 @@ NUMBER:<%= @user.employee_number %><br>
   <%= course.title %> コース
   進捗度： <%= @user.is_completed_lectures.count %>/<%= course.sections.joins(:lectures).count %>
   <!-- 　joins でレクチャーを持って来れる。　　 -->
-  <% logger.debug('hoge') %>
-  <% logger.debug(@checked.inspect) %>
-  最終更新日 <%= @checked[0].created_at %>
+  最終更新日 <%= @checked.length >= 1 ? @checked[0].created_at : '完了したレクチャーはまだありません' %>
 
   <div class="panel-group" id="accordion">
     <% course.sections.each do |section| %>
