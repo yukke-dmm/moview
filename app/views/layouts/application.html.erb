@@ -14,20 +14,22 @@
   <body>
     <div class="container">
       <%= render "layouts/header"%>
-    </div>
-    <div class="container">
+
+      <br>
+
       <% flash.each do |message_type,message| %>
         <!--　ここの表記が少しわからない。 -->
         <div class="alert alert-<%= message_type %>"><%= message %></div>
         <%#= content_tag(:div, message, class: "alert alert-#{message_type}") %>
       <% end %>
+
       <%= yield %>
+
+      <br>
+      <br>
+
+      <%= render "layouts/footer"%>
     </div>
-
-    <br>
-    <br>
-
-    <%= render "layouts/footer"%>
 
 <!-- デバック表記 -->
     <div class="container">

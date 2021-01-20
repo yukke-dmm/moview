@@ -8,8 +8,9 @@ before_action :admin_user
   end
 
   def show
-  	@user = User.find(params[:id])
+    @user = User.find(params[:id])
     @courses = Course.all
+    @checked = IsCompletedLecture.where(user_id: params[:id]).order(created_at: :desc).limit(1)
     # ここがおかしいのか
     # @course = Course.find(params[:id])
     # @sections = @course.sections.all
@@ -18,17 +19,17 @@ before_action :admin_user
   end
 
   def new
-  	@user = User.new
+    @user = User.new
   end
 
   def create
-  	@user = User.new(user_params)
-  	if @user.save
-  		flash[:success] = "登録に成功しました"
-  		redirect_to admin_users_url
-  	else
-  		render 'new'
-  	end
+    @user = User.new(user_params)
+    if @user.save
+      flash[:success] = "登録に成功しました"
+      redirect_to admin_users_url
+    else
+      render 'new'
+    end
   end
 
   def edit
@@ -53,17 +54,17 @@ before_action :admin_user
 
 
 private
-	def user_params
-		params.require(:user).permit(:name,:email,:employee_number,:password,:password_confirmation)
+  def user_params
+    params.require(:user).permit(:name,:email,:employee_number,:password,:password_confirmation)
     # params.permit(:name,:email,:employee_number,:password,:password_confirmation)
-	end
+  end
 
-	def logged_in_user
-	  unless logged_in?
-	    flash[:danger] = "ログインしてください"
-	    redirect_to login_url
-	  end
-	end
+  def logged_in_user
+    unless logged_in?
+      flash[:danger] = "ログインしてください"
+      redirect_to login_url
+    end
+  end
 
     # 管理者かどうか確認
     def admin_user
