@@ -8,8 +8,7 @@
 	</div>
 	<div class="col-md-4">
 		<% if current_admin.admin? %>
-		    <%= link_to "削除する",admin_lecture_path(@lecture), method: :delete,
-		                                  data: { confirm: "本当に削除しますか？" },class: "btn btn-danger" %>
+		    <%= link_to "削除する",admin_lecture_path(@lecture), method: :delete,data: { confirm: "本当に削除しますか？" },class: "btn btn-danger" %>
 		<% end %>
 	</div>
 </div>

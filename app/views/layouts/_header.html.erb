@@ -1,50 +1,45 @@
-
-
 <% if admin_logged_in? %>
 
-        <header class="header-admin">
-            <div class="container">
-                <nav class="nav">
-                    <%= link_to "MOVIEW",root_path,id: "logo" %>
-                    <ul class="nav navbar-nav navbar-right">
-                            <li class="header-name"><%= current_admin.name %></li>
-                                <li><%= link_to "社員一覧",admin_users_path %></li>
-                                <li><%= link_to "コース一覧",admin_courses_path %></li>
-                                <li><%= link_to "ログアウト",admin_logout_path,method: :delete %></li>
-                    </ul>
-                </nav>
-            </div>
-        </header>
+  <header class="header-admin">
+    <div class="container">
+      <nav class="nav">
+        <%= link_to "MOVIEW",root_path,id: "logo" %>
+        <ul class="nav navbar-nav navbar-right">
+          <li class="header-name"><%= current_admin.name %></li>
+          <li><%= link_to "社員一覧",admin_users_path %></li>
+          <li><%= link_to "コース一覧",admin_courses_path %></li>
+          <li><%= link_to "ログアウト",admin_logout_path,method: :delete %></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
 
 <% elsif logged_in? %>
 
-        <header class="header-user">
-            <div class="container">
-                <nav class="nav">
-                    <%= link_to "MOVIEW",root_path,id: "logo" %>
-                    <ul class="nav navbar-nav navbar-right">
-                            <li class="header-name"><%= current_user.name %></li>
-                                <li><%= link_to "トップ",root_path %></li>
-                                <li><%= link_to "使い方",about_path %></li>
-                                <li><%= link_to "ログアウト",logout_path,method: :delete %></li>
-                    </ul>
-                </nav>
-            </div>
-        </header>
+  <header>
+    <div class="container">
+      <nav class="nav">
+        <%= link_to "MOVIEW",root_path,id: "logo" %>
+        <ul class="nav navbar-nav navbar-right">
+          <li class="header-name"><%= current_user.name %></li>
+          <li><%= link_to "トップ",root_path %></li>
+          <li><%= link_to "使い方",about_path %></li>
+          <li><%= link_to "ログアウト",logout_path,method: :delete %></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
 
 <% else %>
 
-        <header>
-            <div class="container">
-                <nav class="nav">
-                    <%= link_to "MOVIEW",root_path,id: "logo" %>
-                    <ul class="nav navbar-nav navbar-right">
-                            <li><%= link_to "ログイン",login_path%></li>
-                            <li><%= link_to "管理者",admin_login_path%></li>
-                    </ul>
-                </nav>
-            </div>
-        </header>
-
+  <header>
+      <nav class="nav">
+        <%= link_to "MOVIEW",root_path,id: "logo" %>
+        <ul class="nav navbar-nav navbar-right">
+          <li><%= link_to "ログイン",login_path%></li>
+          <li><%= link_to "管理者",admin_login_path%></li>
+        </ul>
+      </nav>
+  </header>
 
 <% end %>

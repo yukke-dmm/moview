@@ -1,18 +1,16 @@
 <nav aria-label="breadcrumb">
-    <ol class="breadcrumb">
-        <li class="breadcrumb-item"><%= link_to "トップ",root_path %></li>
-    	<li class="breadcrumb-item"><%= link_to "コース詳細",course_path(@section.course_id)%></li>
-    	<li class="breadcrumb-item active" aria-current="page">セクション詳細</li>
-    </ol>
+  <ol class="breadcrumb">
+    <li class="breadcrumb-item"><%= link_to "トップ",root_path %></li>
+   	<li class="breadcrumb-item"><%= link_to "コース詳細",course_path(@section.course_id)%></li>
+   	<li class="breadcrumb-item active" aria-current="page">セクション詳細</li>
+  </ol>
 </nav>
-
 
 <div class="row">
 	<h1 class="card-text"><%= @section.title %>
 		<% if logged_in? %>
 			<% if current_user.admin? %>
 				<%= link_to "セクションを編集する", edit_section_path(@section),class: "btn btn-primary right" %>
-			<% else %>
 			<% end %>
 		<% end %>
 	</h1>
@@ -24,25 +22,21 @@
 	<%= @section.introduce %>
 </div>
 
-
 <div class="movie　row">
 	<iframe width="560" height="315" src="<%= @lecture.lecture_movie_url %>" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 	<br>
-
 	<%= @lecture.title %>  <%= @lecture.introduce %>
 </div>
 
-	<div class="row">
+<div class="row">
 <!-- 		<div class="col-md-2"></div> -->
-		<div class="col-md-2">
-			<%= link_to "戻る","#",class: "btn btn-primary" %>
+	<div class="col-md-2">
+    <% if @lecture_index != 0 %>
+      <%= link_to "前の動画", admin_lec_path(@section, @lecture_ids[@lecture_index.to_i - 1]), class: "btn_arrow_back btn btn-danger" %>
+    <% end %>
+	</div>
 
-			<%# if @lecture.previous.present? %>
-				<%#= link_to "PREV", lecture_path(@lecture.previous), class: "btn_arrow_back"%>
-			<%# end %>
-		</div>
-
-	    <div class="col-md-2">
+  <div class="col-md-2">
 		<% if @lecture.checked_by?(current_user) %>
 			<li>
 				<%= link_to lecture_is_completed_lectures_path(@lecture),class: "btn btn-danger", method: :delete do %>未視聴に戻す<% end %>
@@ -52,25 +46,16 @@
 				<%= link_to lecture_is_completed_lectures_path(@lecture),class: "btn btn-primary",  method: :post do %>このレクチャーを完了する<% end %>
 			</li>
 		<% end %>
-	    </div>
+  </div>
 
-		<div class="col-md-2">
-			<%= link_to "次へ","#",class: "btn btn-primary" %>
-			<%# if @lecture.next.present? %>
-				<%#= link_to "NEXT",lec_path(@lecture.next), class: "btn_arrow" %>
-			<%# end %>
-		</div>
+	<div class="col-md-2">
+		<%= link_to "次へ","#",class: "btn btn-primary" %>
+
 	</div>
-
-
-
+</div>
 
 <div class="line"></div>
-
 
 <div>
 	<%= render "sections/section" %>
 </div>
-
-
-

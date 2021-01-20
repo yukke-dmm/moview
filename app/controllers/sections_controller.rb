@@ -20,11 +20,15 @@ class SectionsController < ApplicationController
   end
 
   def show
-    @section = Section.find(params[:section_id])
+    @section = Section.includes(:lectures).find(params[:section_id])
     @course = Course.find(@section.course_id)
     @sections = @course.sections.all
     @lecture = Lecture.find(params[:lecture_id])
-    # @lectures = @section.lectures.all
+    # ここで選択中のセクション配下のレクチャーのIDだけを抽出した配列を作成する。
+    # 書き方　・・・　配列の入った変数.map {|変数名| 処理内容 }
+    @lecture_ids = @section.lectures.map{ |lecture| lecture.id }
+    #さらにこれで、選択中のレクチャーが①で作成した配列の何番目にあるのかを取得してます
+    @lecture_index = @lecture_ids.index(@lecture.id)
   end
 
   def edit

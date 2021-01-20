@@ -13,30 +13,29 @@
 
 <%= will_paginate %>
 
-		<table class="table table-borderless">
-			<thead class="thead-dark">
-				<tr>
-					<th>社員番号</th>
-					<th>社員名</th>
-					<th>メールアドレス</th>
-					<th>操作</th>
-				</tr>
-			</thead>
+<table class="table table-borderless">
+	<thead class="thead-dark">
+		<tr>
+			<th>社員番号</th>
+			<th>社員名</th>
+			<th>メールアドレス</th>
+			<th>操作</th>
+		</tr>
+	</thead>
 
-			<tbody>
-				<% @users.each do |user| %>
-					<tr>
-						<td><%= user.employee_number %></td>
-						<td><%= user.name %></td>
-				    	<td><%= user.email %></td>
-				    	<td>
-				    		<%= link_to "進捗", admin_user_path(user) %>
-				    		<%= link_to "編集", edit_admin_user_path(user) %>
-				    	</td>
-					</tr>
-				<% end %>
-			</tbody>
-
-		</table>
+	<tbody>
+		<% @users.each do |user| %>
+			<tr>
+				<td><%= user.employee_number %></td>
+				<td><%= user.name %></td>
+	    	<td><%= user.email %></td>
+	    	<td>
+	    		<%= link_to "進捗", admin_user_path(user) %>
+	    		<%= link_to "編集", edit_admin_user_path(user) %>
+	    	</td>
+			</tr>
+		<% end %>
+	</tbody>
+</table>
 
 <%= will_paginate %>

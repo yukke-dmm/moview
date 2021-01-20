@@ -8,38 +8,37 @@ NUMBER:<%= @user.employee_number %><br>
 <br>
 <br>
 
+<% i = 0 %>
+
 <% @courses.each do |course|%>
-    <%= course.title %> コース
-    進捗度： <%= @user.is_completed_lectures.count %>/<%= @.lectures.count %>
-    最終更新日 <%#= is_completed_lectures.created_at %>
+  <%= course.title %> コース
+  進捗度： <%= @user.is_completed_lectures.count %>/<%= course.sections.joins(:lectures).count %>
+  <!-- 　joins でレクチャーを持って来れる。　　 -->
+  最終更新日 <%#= is_completed_lectures.created_at(@user) %>
 
-	<% i = 0 %>
+  <div class="panel-group" id="accordion">
+    <% course.sections.each do |section| %>
+      <div class="panel panel-default">
 
-	<div class="panel-group" id="accordion">
-		<% course.sections.each do |section| %>
-			<div class="panel panel-default">
+    		<div class="panel-heading">
+          <h4 class="panel-title">
+	 		      <a data-toggle="collapse" data-parent="#accordion" href="#collapse<%= i = i + 1 %>">
+	 	  	      <i class="fas fa-arrow-alt-circle-down">　　　</i><!-- <i class="far fa-arrow-alt-circle-up"></i> -->
+		        </a>
+            <%= section.title %>
+          </h4>
+		    </div>
 
-			    <div class="panel-heading">
-			        <h4 class="panel-title">
-				  		<a data-toggle="collapse" data-parent="#accordion" href="#collapse<%= i = i + 1 %>">
-				        	<i class="fas fa-arrow-alt-circle-down">　　　</i>
-				        	<!-- <i class="far fa-arrow-alt-circle-up"></i> -->
-				        </a>
-						<%= section.title %>
-				    </h4>
-				</div>
+		<!-- 上のiの計算で数字が変わっているため、ここをi+1にすると連動しなくなるので注意 -->
+        <div id="collapse<%= i %>" class="panel-collapse collapse out" >
+  	      <% section.lectures.each do |lecture|%>
+            <div class="panel-body">
+		   	      <%= lecture.title %> <%#= lecture.is_completed_lecture.created_at %>
+            </div>
+          <% end %>
+        </div>
 
-				    <!-- 上のiの計算で数字が変わっているため、ここをi+1にすると連動しなくなるので注意 -->
- 				<div id="collapse<%= i %>" class="panel-collapse collapse out" >
-<!-- 					<div id="collapse<%= i %>" class="panel-collapse collapse out"> -->
-				  	<% section.lectures.each do |lecture|%>
-				       	<div class="panel-body">
-		        			<%= lecture.title %> <%#= lecture.is_completed_lectures.created_at %>
-						</div>
-			        <% end %>
-			    </div>
-
-			</div>
-		<% end %>
-	</div>
+      </div>
+  	<% end %>
+  </div>
 <% end %>

@@ -31,7 +31,6 @@ li{
     display: flex;
     justify-content:flex-start;
     flex-flow:row wrap;
-    margin-left:33px;
 }
 
 .header-name{
@@ -56,7 +55,6 @@ h1{
 
 .btn{
   padding:2px;
-  color:white;
 }
 
 .col-md-2{
@@ -72,14 +70,19 @@ h1{
 }
 /*-------- course --------*/
 .card{
-  margin:10px;
+  margin:0 20px 20px 0;
   border-radius: 3px;
-  width:200px;
+  width:210px;
   height:300px;
   background-size: cover;
   background-position: center;
-  background-color: lightyellow;
+  background-color: #EEFFFF;
 }
+
+.card:nth-child(5n) {
+  margin-right: 0;
+}
+
 
 .card-body{
   padding:10px ;
@@ -147,19 +150,15 @@ input {
 
 /*---------header---------*/
 header {
-  background-color:#FFC7AF;
+  background-color:#1E90FF;
 } 
 
 .header-admin{
-  background-color:lightblue;
+  background-color:#99CC99;
 } 
 
-.header-user{
-  background-color:#99CC99;
-}
-
 .nav{
-  padding: 0 5px;
+  padding: 0 10px 0 20px ;
 }
 
 #logo {
@@ -188,8 +187,10 @@ footer{
 
 /*---------HOME---------*/
 .topimage {
-	height:300px;
-	background-color: lightpink;
+	height:400px;
+  background-image: image-url("top_img.jpg");
+    background-size: cover;
+    background-position: center;
 }
 
 /*---------About---------*/
