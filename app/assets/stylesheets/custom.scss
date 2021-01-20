@@ -27,9 +27,9 @@ li{
 
 
 .flex{
-    display: flex;
-    justify-content:flex-start;
-    flex-flow:row wrap;
+  display: flex;
+  justify-content:flex-start;
+  flex-flow:row wrap;
 }
 
 .header-name{
@@ -68,8 +68,16 @@ h1{
   background-color:#FFEEFF;
 }
 /*-------- course --------*/
+.card-wrap {
+  display: flex;
+  justify-content:flex-start;
+  flex-flow:row wrap;
+  margin: 0 -10px;
+}
+
 .card{
-  margin:0 20px 20px 0;
+  margin: 0 11px;
+  margin-bottom: 20px;
   border-radius: 3px;
   width:210px;
   height:300px;
@@ -78,13 +86,8 @@ h1{
   background-color: #EEFFFF;
 }
 
-.card:nth-child(5n) {
-  margin-right: 0;
-}
-
-
 .card-body{
-  padding:10px ;
+  padding:11px ;
   height:150px;
   position:relative;
 }
@@ -150,11 +153,11 @@ input {
 /*---------header---------*/
 header {
   background-color:#1E90FF;
-} 
+}
 
 .header-admin{
   background-color:#99CC99;
-} 
+}
 
 .nav{
   padding: 0 10px 0 20px ;

@@ -14,31 +14,33 @@ NUMBER:<%= @user.employee_number %><br>
   <%= course.title %> コース
   進捗度： <%= @user.is_completed_lectures.count %>/<%= course.sections.joins(:lectures).count %>
   <!-- 　joins でレクチャーを持って来れる。　　 -->
-  最終更新日 <%#= @checked %>
+  <% logger.debug('hoge') %>
+  <% logger.debug(@checked.inspect) %>
+  最終更新日 <%= @checked[0].created_at %>
 
   <div class="panel-group" id="accordion">
     <% course.sections.each do |section| %>
       <div class="panel panel-default">
 
-    		<div class="panel-heading">
+        <div class="panel-heading">
           <h4 class="panel-title">
-	 		      <a data-toggle="collapse" data-parent="#accordion" href="#collapse<%= i = i + 1 %>">
-	 	  	      <i class="fas fa-arrow-alt-circle-down">　　　</i><!-- <i class="far fa-arrow-alt-circle-up"></i> -->
-		        </a>
+            <a data-toggle="collapse" data-parent="#accordion" href="#collapse<%= i = i + 1 %>">
+              <i class="fas fa-arrow-alt-circle-down">　　　</i><!-- <i class="far fa-arrow-alt-circle-up"></i> -->
+            </a>
             <%= section.title %>
           </h4>
-		    </div>
+        </div>
 
-		<!-- 上のiの計算で数字が変わっているため、ここをi+1にすると連動しなくなるので注意 -->
+    <!-- 上のiの計算で数字が変わっているため、ここをi+1にすると連動しなくなるので注意 -->
         <div id="collapse<%= i %>" class="panel-collapse collapse out" >
-  	      <% section.lectures.each do |lecture|%>
+          <% section.lectures.each do |lecture|%>
             <div class="panel-body">
-		   	      <%= lecture.title %> <%#= @user.is_completed_lecture.created_at %>
+              <%= lecture.title %> <%#= @user.is_completed_lecture.created_at %>
             </div>
           <% end %>
         </div>
 
       </div>
-  	<% end %>
+    <% end %>
   </div>
 <% end %>
