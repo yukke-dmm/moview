@@ -1,18 +1,18 @@
 <%= form_for(@course) do |f| %>
 
-	<%= f.label :image,"コース画像"%>
+  <%= f.label :image,"コース画像"%>
   <%= f.attachment_field :image %>
 
-	<%= f.label :digest_movie_url,"ダイジェスト動画URL" %>
-	<%= f.text_field :digest_movie_url %>
+  <%= f.label :digest_movie_url,"ダイジェスト動画URL" %>
+  <%= f.text_field :digest_movie_url %>
 
-	<%= f.label :title,"タイトル" %>
-	<%= f.text_field :title %>
+  <%= f.label :title,"タイトル" %>
+  <%= f.text_field :title %>
 
-	<%= f.label :introduce,"説明文"%>
-	<%= f.text_area :introduce %>
+  <%= f.label :introduce,"説明文"%>
+  <%= f.text_area :introduce %>
 
-	<%= f.submit yield(:button_text), class: "btn btn-primary" %>
+  <%= f.submit yield(:button_text), class: "btn btn-primary" %>
 
 <% end %>
 

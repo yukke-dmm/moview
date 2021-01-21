@@ -2,12 +2,12 @@
 
   <%= f.hidden_field :course_id, :value => params[:course_id] %>
 
-	<%= f.label :title,"タイトル" %>
-	<%= f.text_field :title %>
+  <%= f.label :title,"タイトル" %>
+  <%= f.text_field :title %>
 
-	<%= f.label :introduce,"説明文"%>
-	<%= f.text_area :introduce %>
+  <%= f.label :introduce,"説明文"%>
+  <%= f.text_area :introduce %>
 
-	<%= f.submit yield(:button_text), class: "btn btn-primary" %>
+  <%= f.submit yield(:button_text), class: "btn btn-primary" %>
 
 <% end %>

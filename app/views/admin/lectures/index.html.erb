@@ -1,21 +1,21 @@
 <h1>レクチャー一覧</h1>
 
-		<% if admin_logged_in? %>
-			<% if current_admin.admin? %>
-				<%= link_to "レクチャーを追加する",new_lecture_path,class: "btn btn-primary" %>
-			<% else %>
+    <% if admin_logged_in? %>
+      <% if current_admin.admin? %>
+        <%= link_to "レクチャーを追加する",new_lecture_path,class: "btn btn-primary" %>
+      <% else %>
 
-			<% end %>
-		<% end %>
+      <% end %>
+    <% end %>
 
 <div class="line"></div>
 
 
 <% @lectures.each do |lectures| %>
-	<%= lectures.lecture_number %><br>
-	<%= lectures.title %><br>
-	<%= lectures.introduce %><br>
-	<%= lectures.lecture_movie_url %>aa<br>
-	<%= lectures.section_id %><br>
-	<%= link_to "編集", edit_lecture_path(lectures) %>
+  <%= lectures.lecture_number %><br>
+  <%= lectures.title %><br>
+  <%= lectures.introduce %><br>
+  <%= lectures.lecture_movie_url %>aa<br>
+  <%= lectures.section_id %><br>
+  <%= link_to "編集", edit_lecture_path(lectures) %>
 <% end %>

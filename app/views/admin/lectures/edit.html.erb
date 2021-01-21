@@ -3,20 +3,20 @@
 <% provide(:admin_path,admin_lecture_path)%>
 
 <div class="row">
-	<div class="col-md-8">
-		<h1>レクチャー情報を更新する。</h1>
-	</div>
-	<div class="col-md-4">
-		<% if current_admin.admin? %>
-		    <%= link_to "削除する",admin_lecture_path(@lecture), method: :delete,data: { confirm: "本当に削除しますか？" },class: "btn btn-danger" %>
-		<% end %>
-	</div>
+  <div class="col-md-8">
+    <h1>レクチャー情報を更新する。</h1>
+  </div>
+  <div class="col-md-4">
+    <% if current_admin.admin? %>
+        <%= link_to "削除する",admin_lecture_path(@lecture), method: :delete,data: { confirm: "本当に削除しますか？" },class: "btn btn-danger" %>
+    <% end %>
+  </div>
 </div>
 
 <div class="line"></div>
 
 <div class="row">
-	<div class="col-md-6 col-md-offset-3">
-		<%= render 'form' %>
-	</div>
+  <div class="col-md-6 col-md-offset-3">
+    <%= render 'form' %>
+  </div>
 </div>

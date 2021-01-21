@@ -1,16 +1,16 @@
 <div class="row">
-	<div class="col-md-10">
-		<h1>セクション一覧</h1>
-	</div>
-	<div class="col-md-2">
-		<% if logged_in? %>
-			<% if current_user.admin? %>
-				<%= link_to "セクションを追加する","/courses/#{params[:id]}/section_new",class: "btn btn-primary" %>
-			<% else %>
+  <div class="col-md-10">
+    <h1>セクション一覧</h1>
+  </div>
+  <div class="col-md-2">
+    <% if logged_in? %>
+      <% if current_user.admin? %>
+        <%= link_to "セクションを追加する","/courses/#{params[:id]}/section_new",class: "btn btn-primary" %>
+      <% else %>
 
-			<% end %>
-		<% end %>
-	</div>
+      <% end %>
+    <% end %>
+  </div>
 </div>
 
 <br>
@@ -18,58 +18,58 @@
 <% i = 0 %>
 
 <div class="panel-group" id="accordion">
-	<% @sections.each do |section| %>
-		<div class="panel panel-default">
+  <% @sections.each do |section| %>
+    <div class="panel panel-default">
 
-	    <div class="panel-heading">
-	      <h4 class="panel-title">
-		  		<a data-toggle="collapse" data-parent="#accordion" href="#collapse<%= i = i + 1 %>">
-			     	<i class="fas fa-arrow-alt-circle-down">　　　</i>				        	<!-- <i class="far fa-arrow-alt-circle-up"></i> -->
-		      </a>
-					<%= section.title %>
-					<% if logged_in? %>
-						<% if current_user.admin? %>
-							<%= link_to "セクションを編集する",edit_section_path(section),class: "btn btn-primary right" %>
-							<%= link_to "レクチャーを追加する","/sections/#{section.id}/lecture_new",class: "btn btn-primary right" %>
-						<% end %>
-					<% end %>
-		  	</h4>
-			</div>
+      <div class="panel-heading">
+        <h4 class="panel-title">
+          <a data-toggle="collapse" data-parent="#accordion" href="#collapse<%= i = i + 1 %>">
+            <i class="fas fa-arrow-alt-circle-down">　　　</i>                 <!-- <i class="far fa-arrow-alt-circle-up"></i> -->
+          </a>
+          <%= section.title %>
+          <% if logged_in? %>
+            <% if current_user.admin? %>
+              <%= link_to "セクションを編集する",edit_section_path(section),class: "btn btn-primary right" %>
+              <%= link_to "レクチャーを追加する","/sections/#{section.id}/lecture_new",class: "btn btn-primary right" %>
+            <% end %>
+          <% end %>
+        </h4>
+      </div>
 
-				    <!-- 上のiの計算で数字が変わっているため、ここをi+1にすると連動しなくなるので注意 -->
- 			<div id="collapse<%= i %>" class="panel-collapse collapse <%='in' if (section.id).to_i == (params[:section_id]).to_i %><%='out' if (section.id).to_i != (params[:section_id]).to_i %>" >
-		  	<% section.lectures.each do |lecture|%>
-		     	<div class="panel-body <%= 'lightpink' if (lecture.id).to_i == (params[:lecture_id]).to_i%>">
-		       	<%= link_to "/sections/#{section.id}/lectures/#{lecture.id}" do %>
-		     			<%= lecture.title %>
-		       	<% end %>
+            <!-- 上のiの計算で数字が変わっているため、ここをi+1にすると連動しなくなるので注意 -->
+      <div id="collapse<%= i %>" class="panel-collapse collapse <%='in' if (section.id).to_i == (params[:section_id]).to_i %><%='out' if (section.id).to_i != (params[:section_id]).to_i %>" >
+        <% section.lectures.each do |lecture|%>
+          <div class="panel-body <%= 'lightpink' if (lecture.id).to_i == (params[:lecture_id]).to_i%>">
+            <%= link_to "/sections/#{section.id}/lectures/#{lecture.id}" do %>
+              <%= lecture.title %>
+            <% end %>
 
-						<% if logged_in? %>
-					    <!-- チェックボタン -->
-							<% if lecture.checked_by?(current_user) %>
-								<li>
-									<%= link_to lecture_is_completed_lectures_path(lecture), method: :delete do %>
-								    <i class="fas fa-check-square" aria-hidden="true" style="color: green;"></i>
-									<% end %>
-								</li>
-							<% else %>
-								<li>
-									<%= link_to lecture_is_completed_lectures_path(lecture), method: :post do %>
-								    <i class="far fa-check-square" aria-hidden="true"></i>
-									<% end %>
-								</li>
-							<% end %>
-								<!-- ここまで -->
-							<% if current_user.admin? %>
-								<%= link_to "レクチャーを編集する",edit_lecture_path(lecture),class: "btn btn-primary right" %>
-							<% end %>
+            <% if logged_in? %>
+              <!-- チェックボタン -->
+              <% if lecture.checked_by?(current_user) %>
+                <li>
+                  <%= link_to lecture_is_completed_lectures_path(lecture), method: :delete do %>
+                    <i class="fas fa-check-square" aria-hidden="true" style="color: green;"></i>
+                  <% end %>
+                </li>
+              <% else %>
+                <li>
+                  <%= link_to lecture_is_completed_lectures_path(lecture), method: :post do %>
+                    <i class="far fa-check-square" aria-hidden="true"></i>
+                  <% end %>
+                </li>
+              <% end %>
+                <!-- ここまで -->
+              <% if current_user.admin? %>
+                <%= link_to "レクチャーを編集する",edit_lecture_path(lecture),class: "btn btn-primary right" %>
+              <% end %>
 
-						<% end %>
-					</div>
-		    <% end %>
-		  </div>
+            <% end %>
+          </div>
+        <% end %>
+      </div>
 
-		</div>
-	<% end %>
+    </div>
+  <% end %>
 </div>
 

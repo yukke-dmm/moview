@@ -1,12 +1,12 @@
 <% provide(:title,'All users')%>
 
 <div class="row">
-	<div class="col-md-10">
-		<h1>社員一覧</h1>
-	</div>
-	<div class="col-md-2">
-		<%= link_to "社員を追加する",admin_signup_path,class: "btn btn-primary" %>
-	</div>
+  <div class="col-md-10">
+    <h1>社員一覧</h1>
+  </div>
+  <div class="col-md-2">
+    <%= link_to "社員を追加する",admin_signup_path,class: "btn btn-primary" %>
+  </div>
 </div>
 
 <div class="line"></div>
@@ -14,28 +14,28 @@
 <%= will_paginate %>
 
 <table class="table table-borderless">
-	<thead class="thead-dark">
-		<tr>
-			<th>社員番号</th>
-			<th>社員名</th>
-			<th>メールアドレス</th>
-			<th>操作</th>
-		</tr>
-	</thead>
+  <thead class="thead-dark">
+    <tr>
+      <th>社員番号</th>
+      <th>社員名</th>
+      <th>メールアドレス</th>
+      <th>操作</th>
+    </tr>
+  </thead>
 
-	<tbody>
-		<% @users.each do |user| %>
-			<tr>
-				<td><%= user.employee_number %></td>
-				<td><%= user.name %></td>
-	    	<td><%= user.email %></td>
-	    	<td>
-	    		<%= link_to "進捗", admin_user_path(user) %>
-	    		<%= link_to "編集", edit_admin_user_path(user) %>
-	    	</td>
-			</tr>
-		<% end %>
-	</tbody>
+  <tbody>
+    <% @users.each do |user| %>
+      <tr>
+        <td><%= user.employee_number %></td>
+        <td><%= user.name %></td>
+        <td><%= user.email %></td>
+        <td>
+          <%= link_to "進捗", admin_user_path(user) %>
+          <%= link_to "編集", edit_admin_user_path(user) %>
+        </td>
+      </tr>
+    <% end %>
+  </tbody>
 </table>
 
 <%= will_paginate %>

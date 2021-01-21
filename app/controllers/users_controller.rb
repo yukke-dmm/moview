@@ -8,21 +8,21 @@ before_action :admin_user
   end
 
   def show
-  	@user = User.find(params[:id])
+    @user = User.find(params[:id])
   end
 
   def new
-  	@user = User.new
+    @user = User.new
   end
 
   def create
-  	@user = User.new(user_params)
-  	if @user.save
-  		flash[:success] = "登録に成功しました"
-  		redirect_to users_url
-  	else
-  		render 'new'
-  	end
+    @user = User.new(user_params)
+    if @user.save
+      flash[:success] = "登録に成功しました"
+      redirect_to users_url
+    else
+      render 'new'
+    end
   end
 
   def edit
@@ -47,10 +47,10 @@ before_action :admin_user
 
 
 private
-	def user_params
-		params.require(:user).permit(:name,:email,:employee_number,:password,:password_confirmation)
+  def user_params
+    params.require(:user).permit(:name,:email,:employee_number,:password,:password_confirmation)
     # params.permit(:name,:email,:employee_number,:password,:password_confirmation)
-	end
+  end
 
   def logged_in_user
     unless logged_in?

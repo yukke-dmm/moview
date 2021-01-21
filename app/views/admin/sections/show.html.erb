@@ -1,14 +1,14 @@
 <nav aria-label="breadcrumb">
   <ol class="breadcrumb">
-  	<li class="breadcrumb-item"><%= link_to "コース詳細",admin_course_path(@section.course_id)%></li>
-  	<li class="breadcrumb-item active" aria-current="page">セクション詳細</li>
+    <li class="breadcrumb-item"><%= link_to "コース詳細",admin_course_path(@section.course_id)%></li>
+    <li class="breadcrumb-item active" aria-current="page">セクション詳細</li>
   </ol>
 </nav>
 
 
 <div class="row">
   <h1 class="card-text"><%= @section.title %>
-	<%= link_to "セクションを編集する", edit_admin_section_path(@section),class: "btn btn-primary right" %>
+  <%= link_to "セクションを編集する", edit_admin_section_path(@section),class: "btn btn-primary right" %>
   </h1>
 </div>
 
@@ -30,15 +30,15 @@
   <div class="col-md-2">
     <% if @lecture_index != 0 %>
       <%= link_to "前の動画", admin_lec_path(@section, @lecture_ids[@lecture_index.to_i - 1]), class: "btn_arrow_back btn btn-primary" %>
-  	<% end %>
+    <% end %>
   </div>
   <div class="col-md-2"></div>
   <div class="col-md-2">
     <% if @lecture_index != @section.lectures.length - 1 %>
     <!-- セクション内の最後のレクチャー（@lecture_index　==　セクション内のレクチャーの個数 (配列の要素数) -1 ）　でなければ、次へボタンを表示させます -->
     <!-- -1を使う　⇨　indexで配列の5番目の値は6。レングス6個の数字から−1した数字がindex番号と重ならないなら表示 -->
-	  <%= link_to "次の動画", admin_lec_path(@section, @lecture_ids[@lecture_index.to_i + 1]), class: "btn_arrow btn btn-primary" %>
-  	<% end %>
+    <%= link_to "次の動画", admin_lec_path(@section, @lecture_ids[@lecture_index.to_i + 1]), class: "btn_arrow btn btn-primary" %>
+    <% end %>
   </div>
 
 </div>
