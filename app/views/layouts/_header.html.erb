@@ -33,7 +33,8 @@
 <% else %>
 
   <header>
-      <nav class="nav">
+      <nav class="nav" > 
+ <!--        style="background-color: <%= controller_name == 'admin::session' ? '#99CC99' : 'red' %>"> -->
         <%= link_to "MOVIEW",root_path,id: "logo" %>
         <ul class="nav navbar-nav navbar-right">
           <li><%= link_to "ログイン",login_path%></li>

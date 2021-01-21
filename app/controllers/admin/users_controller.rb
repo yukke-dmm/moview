@@ -10,7 +10,9 @@ before_action :admin_user
   def show
   	@user = User.find(params[:id])
     @courses = Course.all
-    @checked = IsCompletedLecture.group(:user_id).order(created_at: :desc)
+    @checked = IsCompletedLecture.where(user_id: params[:id]).order(created_at: :desc).limit(1)
+    # IsCompletedLecture をwhere で対象のユーザーに絞り込み、order(created_at: :desc)で新しい順に並び替え、limit で1つだけ取り出します
+
     # ここがおかしいのか
     # @course = Course.find(params[:id])
     # @sections = @course.sections.all
@@ -67,9 +69,9 @@ private
 	end
 
     # 管理者かどうか確認
-    def admin_user
-      redirect_to(root_url) unless current_admin.admin?
-    end
+  def admin_user
+    redirect_to(root_url) unless current_admin.admin?
+  end
 
       # 正しいユーザーかどうか確認
   def correct_user

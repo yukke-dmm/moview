@@ -8,7 +8,9 @@
   padding: 0;
   box-sizing: border-box;}
 
-a {
+header > a {
+  color:white;
+  text-decoration:none;
 }
 
 li{
@@ -27,9 +29,9 @@ li{
 
 
 .flex{
-    display: flex;
-    justify-content:flex-start;
-    flex-flow:row wrap;
+  display: flex;
+  justify-content:flex-start;
+  flex-flow:row wrap;
 }
 
 .header-name{
@@ -67,9 +69,23 @@ h1{
 .lightpink{
   background-color:#FFEEFF;
 }
+
+
 /*-------- course --------*/
+
+/*個々の要素（card）にマージンを左右に設定し、外枠(card-wrap)のマージンをマイナスで設定して調整するかんじです*/
+
+.card-wrap {
+  display: flex;
+  justify-content:flex-start;
+  flex-flow:row wrap;
+  margin: 0 -10px;
+}
+
+
 .card{
-  margin:0 20px 20px 0;
+margin: 0 11px;
+  margin-bottom: 20px;
   border-radius: 3px;
   width:210px;
   height:300px;
@@ -78,13 +94,10 @@ h1{
   background-color: #EEFFFF;
 }
 
-.card:nth-child(5n) {
-  margin-right: 0;
-}
 
 
 .card-body{
-  padding:10px ;
+  padding:11px ;
   height:150px;
   position:relative;
 }
@@ -150,11 +163,16 @@ input {
 /*---------header---------*/
 header {
   background-color:#1E90FF;
-} 
+}
+
+header.Admin::SessionController{
+  background-color: green;
+}
+
 
 .header-admin{
   background-color:#99CC99;
-} 
+}
 
 .nav{
   padding: 0 10px 0 20px ;
