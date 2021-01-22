@@ -46,12 +46,22 @@ li{
   border-bottom:solid 5px darkgray;
 }
 
+.line-thin{
+  padding-top: 15px;
+  margin-bottom: 15px;
+  border-bottom:solid 1px darkgray;
+}
+
 h1{
   margin:0 auto;
 }
 
 .right{
   float:right;
+}
+
+.center{
+  text-align:center;
 }
 
 .btn{
@@ -70,6 +80,9 @@ h1{
   background-color:#FFEEFF;
 }
 
+.mini-image{
+  border-radius:50px;
+}
 
 /*-------- course --------*/
 
@@ -122,7 +135,17 @@ margin: 0 11px;
   position:center;
 }
 
+.lecture-text{
+  background-color:#F8F8FF;
+  border-radius:3px;
+  padding:5px;
+  margin-top:5px;
+}
 
+.section-text{
+  padding:5px;
+  margin-top:5px;
+}
 
 
 

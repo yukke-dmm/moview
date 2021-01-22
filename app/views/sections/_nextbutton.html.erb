@@ -1,0 +1,34 @@
+<!-- 前へボタンとか -->
+<div class="row">
+  <div class="col-md-1"></div>
+  <div class="col-md-1">
+    <% if @lecture_index != 0 %>
+      <%= link_to "前の動画", lec_path(@section, @lecture_ids[@lecture_index.to_i - 1]), class: "btn_arrow_back btn btn-primary" %>
+    <% end %>
+  </div>
+
+  <div class="col-md-2"></div>
+
+  <div class="col-md-3">
+    <% if @lecture.checked_by?(current_user) %>
+      <li>
+        <%= link_to lecture_is_completed_lectures_path(@lecture),class: "btn btn-danger", method: :delete do %>未視聴に戻す<% end %>
+      </li>
+    <% else %>
+      <li>
+        <%= link_to lecture_is_completed_lectures_path(@lecture),class: "btn btn-primary",  method: :post do %>このレクチャーを完了する<% end %>
+      </li>
+    <% end %>
+  </div>
+
+  <div class="col-md-2"></div>
+
+  <div class="col-md-1">
+    <% if @lecture_index != @section.lectures.length - 1 %>
+    <!-- セクション内の最後のレクチャー（@lecture_index　==　セクション内のレクチャーの個数 (配列の要素数) -1 ）　でなければ、次へボタンを表示させます -->
+    <!-- -1を使う　⇨　indexで配列の5番目の値は6。レングス6個の数字から−1した数字がindex番号と重ならないなら表示 -->
+    <%= link_to "次の動画", lec_path(@section, @lecture_ids[@lecture_index.to_i + 1]), class: "btn_arrow btn btn-primary" %>
+    <% end %>
+  </div>
+</div>
+<!-- ここまで -->

@@ -43,7 +43,7 @@ User.create!(name:  "yamada",
 end
 
 10.times do |n|
-  title = "タイトルサンプル#{n+1}"
+  title = "タイトル#{n+1}　コース"
   introduce = "説明サンプル#{n+1}説明サンプル#{n+1}説明サンプル#{n+1}説明サンプル#{n+1}説明サンプル#{n+1}説明サンプル#{n+1}説明サンプル#{n+1}説明サンプル#{n+1}"
   Course.create!(title: title,
                  introduce: introduce,
@@ -60,7 +60,7 @@ end
 end
 
 5.times do |n|
-  title = "セクション#{n+1}"
+  title = "タイトル(セクション)#{n+1}"
   introduce = "説明(セクション)#{n+1}"
   Section.create!(title: title,
                   introduce: introduce,

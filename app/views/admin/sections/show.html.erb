@@ -7,45 +7,45 @@
 
 
 <div class="row">
-  <h1 class="card-text"><%= @section.title %>
-  <%= link_to "セクションを編集する", edit_admin_section_path(@section),class: "btn btn-primary right" %>
-  </h1>
-</div>
+  <div class="col-md-5">
 
-<br>
+    <h1 class="card-text"><%= @section.title %>
+      <%= link_to "セクションを編集する", edit_admin_section_path(@section),class: "btn btn-primary right" %>
+    </h1>
+    <div class="section-text">
+      <span>
+        <%= @section.introduce %>
+      </span>
+    </div>
 
-<div class="row">
-  <%= @section.introduce %>
-</div>
 
+    <div class="movie　row">
+      <iframe width="100%" height="300" src="<%= @lecture.lecture_movie_url %>" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+    </div>
 
-<div class="movie　row">
-  <iframe width="560" height="315" src="<%= @lecture.lecture_movie_url %>" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-  <br>
-  <%= @lecture.title %>  <%= @lecture.introduce %>
-</div>
+    <span>
+        <%= render "admin/sections/nextbutton" %>
+    </span>
 
-<div class="row">
+    <div class="lecture-text">
+      <div class="card-text">
+        <%= @lecture.title %><br>
+      </div>
+      <div>
+        <%= @lecture.introduce %>
+      </div>
+    </div>
 
-  <div class="col-md-2">
-    <% if @lecture_index != 0 %>
-      <%= link_to "前の動画", admin_lec_path(@section, @lecture_ids[@lecture_index.to_i - 1]), class: "btn_arrow_back btn btn-primary" %>
-    <% end %>
+    <div>
+      <br>
+      <%= attachment_image_tag @section.course, :image, :fill,50, 50, fallback: "no_image.jpg", size: '50x50', class: "mini-image" %>
+      <%= @section.course.title%>
+    </div>
+
   </div>
-  <div class="col-md-2"></div>
-  <div class="col-md-2">
-    <% if @lecture_index != @section.lectures.length - 1 %>
-    <!-- セクション内の最後のレクチャー（@lecture_index　==　セクション内のレクチャーの個数 (配列の要素数) -1 ）　でなければ、次へボタンを表示させます -->
-    <!-- -1を使う　⇨　indexで配列の5番目の値は6。レングス6個の数字から−1した数字がindex番号と重ならないなら表示 -->
-    <%= link_to "次の動画", admin_lec_path(@section, @lecture_ids[@lecture_index.to_i + 1]), class: "btn_arrow btn btn-primary" %>
-    <% end %>
+
+  <div class="col-md-7">
+    <%= render "admin/sections/section" %>
   </div>
-
-</div>
-
-<div class="line"></div>
-
-<div>
-  <%= render "admin/sections/section" %>
 </div>
 

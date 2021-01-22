@@ -1,19 +1,25 @@
 <div class="row">
-  <div class="col-md-4 col-sm-4 col-xs-4">
-    <%= attachment_image_tag @course, :image , :fill, 158, 135, fallback: "no_image.jpg", size: '360x260' %>
+  <div class="col-md-5">
+    <h3 class="card-text"><%= @course.title %>
+      <%= link_to "コースを編集する", edit_admin_course_path(@course), class: "btn btn-lg, btn-primary right"%>
+    </h3>
+    <div class="center">
+      <%= attachment_image_tag @course, :image , :fill, 158, 135, fallback: "no_image.jpg", size: '400x300' %>
+    </div>
+    <div class="lecture-text">
+      <span>
+        <%= @course.introduce %>
+      </span>
+    </div>
+
   </div>
-  <div class="col-md-6 col-sm-6 col-xs-6">
-    <h1 class="card-text"><%= @course.title %></h1>
-    <br>
-    <div><%= @course.introduce %></div>
+
+  <div class="col-md-7">
+    <%= render "admin/sections/section" %>
   </div>
-  <div class="col-md-2 col-sm-2 col-xs-2">
-        <%= link_to "コースを編集する", edit_admin_course_path(@course), class: "btn btn-lg, btn-primary"%>
-  </div>
+
 </div>
 
-<div class="line"></div>
 
-<div>
-  <%= render "admin/sections/section" %>
-</div>
+
+

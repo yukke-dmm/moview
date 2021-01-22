@@ -43,7 +43,7 @@ Rails.application.routes.draw do
   resources :courses,only:[:show,:index]
   resources :sections,only:[:show]
   resources :lectures,only:[:create,:destroy,:edit,:update,:index] do
-    resource :is_completed_lectures,only:[:create,:update]
+    resource :is_completed_lectures,only:[:create,:destroy]
   end
 
 # ログイン機構

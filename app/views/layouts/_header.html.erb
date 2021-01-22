@@ -33,14 +33,25 @@
 <% else %>
 
   <header>
-      <nav class="nav" > 
- <!--        style="background-color: <%= controller_name == 'admin::session' ? '#99CC99' : 'red' %>"> -->
-        <%= link_to "MOVIEW",root_path,id: "logo" %>
-        <ul class="nav navbar-nav navbar-right">
-          <li><%= link_to "ログイン",login_path%></li>
-          <li><%= link_to "管理者",admin_login_path%></li>
-        </ul>
-      </nav>
+
+      <% if controller_name == 'AdminSession' %>
+        <nav class="nav" style="background-color: 'red'">
+          <%= link_to "MOVIEW",root_path,id: "logo" %>
+          <ul class="nav navbar-nav navbar-right">
+            <li><%= link_to "ログイン",login_path%></li>
+            <li><%= link_to "管理者",admin_login_path%></li>
+          </ul>
+        </nav>
+      <%else%>
+        <nav class="nav">
+          <%= link_to "MOVIEW",root_path,id: "logo" %>
+          <ul class="nav navbar-nav navbar-right">
+            <li><%= link_to "ログイン",login_path%></li>
+            <li><%= link_to "管理者",admin_login_path%></li>
+          </ul>
+        </nav>
+      <%end%>
+
   </header>
 
 <% end %>

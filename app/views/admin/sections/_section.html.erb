@@ -1,9 +1,6 @@
 <div class="row">
-  <div class="col-md-10">
-    <h1>セクション一覧</h1>
-  </div>
-  <div class="col-md-2">
-        <%= link_to "セクションを追加する",admin_path(@course),class: "btn btn-primary" %>
+  <div class="col-md-12 ">
+    <h3 class="card-text">セクション一覧      <%= link_to "セクションを追加する",admin_path(@course),class: "btn btn-primary right" %></h3>
   </div>
 </div>
 
@@ -21,8 +18,11 @@
             <i class="fas fa-arrow-alt-circle-down">　</i><!-- <i class="far fa-arrow-alt-circle-up"></i> -->
           </a>
             <%= section.title %>
-            <%= link_to "セクションを編集する",edit_admin_section_path(section),class: "btn btn-primary right" %>
-            <%= link_to "レクチャーを追加する",admin_lec_new_path(section),class: "btn btn-primary right" %>
+            <div class="right">
+              <%= link_to "セクションを編集する",edit_admin_section_path(section),class: "btn btn-primary" %>
+              <%= link_to "レクチャーを追加する",admin_lec_new_path(section),class: "btn btn-primary" %>
+            </div>
+
         </h4>
       </div>
 
