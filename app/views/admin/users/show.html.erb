@@ -54,7 +54,9 @@
           <% section.lectures.each do |lecture|%>
             <div class="panel-body">
               <%= lecture.title %>
-              <%#= @user.is_completed_lectures.joins(:lecture).created_at.strftime('%Y/%m/%d %H:%M:%S') %>
+              <%#= lecture.is_completed_lectures.where(user_id: params[:id])[0].created_at.strftime('%Y/%m/%d %H:%M:%S') %>
+              <% logger.debug('check') %>
+              <% logger.debug(lecture.is_completed_lectures.inspect) %>
               <%#= @checked_lecture.length >= 1 ? @checked_lecture[0].created_at.strftime('%Y/%m/%d %H:%M:%S') : '完了していません' %>
             </div>
           <% end %>

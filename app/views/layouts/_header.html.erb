@@ -5,10 +5,10 @@
       <nav class="nav">
         <%= link_to "MOVIEW",root_path,id: "logo" %>
         <ul class="nav navbar-nav navbar-right">
-          <li class="header-name"><%= current_admin.name %></li>
-          <li><%= link_to "社員一覧",admin_users_path %></li>
-          <li><%= link_to "コース一覧",admin_courses_path %></li>
-          <li><%= link_to "ログアウト",admin_logout_path,method: :delete %></li>
+          <li class="header-name header-link"><%= current_admin.name %></li>
+          <li><%= link_to "社員一覧",admin_users_path , class: "header-link" %></li>
+          <li><%= link_to "コース一覧",admin_courses_path , class: "header-link" %></li>
+          <li><%= link_to "ログアウト",admin_logout_path,method: :delete , class: "header-link" %></li>
         </ul>
       </nav>
     </div>
@@ -21,10 +21,10 @@
       <nav class="nav">
         <%= link_to "MOVIEW",root_path,id: "logo" %>
         <ul class="nav navbar-nav navbar-right">
-          <li class="header-name"><%= current_user.name %></li>
-          <li><%= link_to "トップ",root_path %></li>
-          <li><%= link_to "使い方",about_path %></li>
-          <li><%= link_to "ログアウト",logout_path,method: :delete %></li>
+          <li class="header-name header-link"><%= current_user.name %></li>
+          <li><%= link_to "トップ",root_path , class: "header-link" %></li>
+          <li><%= link_to "使い方",about_path , class: "header-link" %></li>
+          <li><%= link_to "ログアウト",logout_path,method: :delete , class: "header-link" %></li>
         </ul>
       </nav>
     </div>
@@ -35,19 +35,19 @@
   <header>
 
       <% if controller_name == 'admin/session' %>
-        <nav class="nav" style="background-color: 'red'">
+        <nav class="nav" style="background-color: 'green'">
           <%= link_to "MOVIEW",root_path,id: "logo" %>
           <ul class="nav navbar-nav navbar-right">
-            <li><%= link_to "ログイン",login_path%></li>
-            <li><%= link_to "管理者",admin_login_path%></li>
+            <li><%= link_to "ログイン",login_path, class: "header-link" %></li>
+            <li><%= link_to "管理者",admin_login_path, class: "header-link" %></li>
           </ul>
         </nav>
       <%else%>
         <nav class="nav">
           <%= link_to "MOVIEW",root_path,id: "logo" %>
           <ul class="nav navbar-nav navbar-right">
-            <li><%= link_to "ログイン",login_path%></li>
-            <li><%= link_to "管理者",admin_login_path%></li>
+            <li><%= link_to "ログイン",login_path, class: "header-link" %></li>
+            <li><%= link_to "管理者",admin_login_path, class: "header-link" %></li>
           </ul>
         </nav>
       <%end%>
