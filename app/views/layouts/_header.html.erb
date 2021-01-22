@@ -1,5 +1,4 @@
 <% if admin_logged_in? %>
-
   <header class="header-admin">
     <div class="container">
       <nav class="nav">
@@ -33,25 +32,27 @@
 <% else %>
 
   <header>
-
-      <% if controller_name == 'admin/session' %>
-        <nav class="nav" style="background-color: 'red'">
-          <%= link_to "MOVIEW",root_path,id: "logo" %>
-          <ul class="nav navbar-nav navbar-right">
-            <li><%= link_to "ログイン",login_path%></li>
-            <li><%= link_to "管理者",admin_login_path%></li>
-          </ul>
-        </nav>
-      <%else%>
-        <nav class="nav">
-          <%= link_to "MOVIEW",root_path,id: "logo" %>
-          <ul class="nav navbar-nav navbar-right">
-            <li><%= link_to "ログイン",login_path%></li>
-            <li><%= link_to "管理者",admin_login_path%></li>
-          </ul>
-        </nav>
-      <%end%>
-
+    <% logger.debug('check2') %>
+    <% logger.debug(controller_name) %>
+    <% if controller_name == 'admin/session' %>
+    <%# 緑色 admin %>
+      <nav class="nav" style="background-color: 'red'">
+        <%= link_to "MOVIEW",root_path,id: "logo" %>
+        <ul class="nav navbar-nav navbar-right">
+          <li><%= link_to "ログイン",login_path%></li>
+          <li><%= link_to "管理者",admin_login_path%></li>
+        </ul>
+      </nav>
+    <%else%>
+    <%# 青色 ユーザー %>
+      <nav class="nav">
+        <%= link_to "MOVIEW",root_path,id: "logo" %>
+        <ul class="nav navbar-nav navbar-right">
+          <li><%= link_to "ログイン",login_path%></li>
+          <li><%= link_to "管理者",admin_login_path%></li>
+        </ul>
+      </nav>
+    <%end%>
   </header>
 
 <% end %>
