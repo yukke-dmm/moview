@@ -14,7 +14,7 @@ NUMBER:<%= @user.employee_number %><br>
   <%= course.title %> コース
   進捗度： <%= @user.is_completed_lectures.count %>/<%= course.sections.joins(:lectures).count %>
   <!-- 　joins でレクチャーを持って来れる。　　 -->
-  最終更新日 <%= @checked.length >= 1 ? @checked[0].created_at : '完了したレクチャーはまだありません' %>
+  最終更新日 <%= @checked.length >= 1 ? @checked[0].created_at.strftime('%Y/%m/%d %H:%M:%S') : '完了したレクチャーはまだありません' %>
   <!--whereとorderで持ってきているのは作成日の配列。その０番を返す。作成順に並んでいるはずなのでこれでよし  -->
   <!--   @checkedは配列で返ってくるので、上記のようにして取り出します。
   データがない場合は'完了したレクチャーはまだありません'と一旦表示してます -->
@@ -37,7 +37,9 @@ NUMBER:<%= @user.employee_number %><br>
         <div id="collapse<%= i %>" class="panel-collapse collapse out" >
           <% section.lectures.each do |lecture|%>
             <div class="panel-body">
-              <%= lecture.title %> <%#= @user.is_completed_lecture.created_at %>
+              <%= lecture.title %>
+              <%= lecture.is_completed_lectures.created_at.strftime('%Y/%m/%d %H:%M:%S')y %>
+              <%#= @checked_lecture.length >= 1 ? @checked_lecture[0].created_at.strftime('%Y/%m/%d %H:%M:%S') : '完了していません' %>
             </div>
           <% end %>
         </div>
@@ -47,4 +49,3 @@ NUMBER:<%= @user.employee_number %><br>
   </div>
 <% end %>
 
-  

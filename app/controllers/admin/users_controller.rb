@@ -10,8 +10,15 @@ before_action :admin_user
   def show
   	@user = User.find(params[:id])
     @courses = Course.all
+
+    # @lecture = IsCompletedLecture.where(lecture_id: params[:lecture_id])
+    # @checked = IsCompletedLecture.where(user_id: params[:id],course_id: @lecture.section.course_id).order(created_at: :desc).limit(1)
+    
+    @checked_lecture = IsCompletedLecture.where(lecture_id: params[:id]).order(created_at: :desc).limit(1)
     @checked = IsCompletedLecture.where(user_id: params[:id]).order(created_at: :desc).limit(1)
     # IsCompletedLecture をwhere で対象のユーザーに絞り込み、order(created_at: :desc)で新しい順に並び替え、limit で1つだけ取り出します
+
+
 
     # ここがおかしいのか
     # @course = Course.find(params[:id])
