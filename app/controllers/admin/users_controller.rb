@@ -11,6 +11,7 @@ before_action :admin_user
   	@user = User.find(params[:id])
     @courses = Course.all
 
+    # コースを限定してユーザーのcreated_atを持ってきたい
     # @lecture = IsCompletedLecture.where(lecture_id: params[:lecture_id])
     # @checked = IsCompletedLecture.where(user_id: params[:id],course_id: @lecture.section.course_id).order(created_at: :desc).limit(1)
     

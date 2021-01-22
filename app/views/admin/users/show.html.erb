@@ -1,12 +1,28 @@
-NAME:<%= @user.name %><br>
-EMAIL:<%= @user.email %><br>
-NUMBER:<%= @user.employee_number %><br>
-登録日:<%= @user.created_at %><br>
-更新日:<%= @user.updated_at %><br>
-現在時刻:<%= Time.now %>
 
-<br>
-<br>
+<div class="card-text">
+  <h3><strong><%= @user.name %></strong>さんの進捗状況</h3>
+</div>
+
+<div class="lecture-text">
+  <table class="table">
+    <thead class="thead-dark">
+      <tr>
+        <th>社員番号</th>
+        <th>メールアドレス</th>
+        <th>最終更新日</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><%= @user.employee_number %></td>
+        <td><%= @user.email %></td>
+        <td><%= @checked.length >= 1 ? @checked[0].created_at.strftime('%Y/%m/%d %H:%M:%S') : '完了したレクチャーはまだありません' %></td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+<div class="line-thin"></div>
 
 <% i = 0 %>
 
@@ -38,7 +54,7 @@ NUMBER:<%= @user.employee_number %><br>
           <% section.lectures.each do |lecture|%>
             <div class="panel-body">
               <%= lecture.title %>
-              <%= lecture.is_completed_lectures.created_at.strftime('%Y/%m/%d %H:%M:%S')y %>
+              <%#= @user.is_completed_lectures.joins(:lecture).created_at.strftime('%Y/%m/%d %H:%M:%S') %>
               <%#= @checked_lecture.length >= 1 ? @checked_lecture[0].created_at.strftime('%Y/%m/%d %H:%M:%S') : '完了していません' %>
             </div>
           <% end %>
