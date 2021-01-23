@@ -1,14 +1,19 @@
 <% if admin_logged_in? %>
-
   <header class="header-admin">
     <div class="container">
       <nav class="nav">
         <%= link_to "MOVIEW",root_path,id: "logo" %>
         <ul class="nav navbar-nav navbar-right">
           <li class="header-name header-link"><%= current_admin.name %></li>
-          <li><%= link_to "社員一覧",admin_users_path , class: "header-link" %></li>
-          <li><%= link_to "コース一覧",admin_courses_path , class: "header-link" %></li>
-          <li><%= link_to "ログアウト",admin_logout_path,method: :delete , class: "header-link" %></li>
+          <li>
+            <%= link_to admin_users_path do %><i class="fas fa-users header-link"> 社員一覧</i><%end%>
+          </li>
+          <li>
+            <%= link_to admin_courses_path do %><i class="fas fa-film header-link"> コース一覧</i><%end%>
+          </li>
+          <li>
+            <%= link_to admin_logout_path ,method: :delete  do %><i class="fas fa-sign-out-alt header-link"> ログアウト</i><% end %>
+          </li>
         </ul>
       </nav>
     </div>
@@ -22,9 +27,15 @@
         <%= link_to "MOVIEW",root_path,id: "logo" %>
         <ul class="nav navbar-nav navbar-right">
           <li class="header-name header-link"><%= current_user.name %></li>
-          <li><%= link_to "トップ",root_path , class: "header-link" %></li>
-          <li><%= link_to "使い方",about_path , class: "header-link" %></li>
-          <li><%= link_to "ログアウト",logout_path,method: :delete , class: "header-link" %></li>
+          <li>
+            <%= link_to root_path do %><i class="fas fa-home"> トップ</i><%end%>
+          </li>
+          <li>
+            <%= link_to about_path do %><i class="fas fa-pencil-ruler header-link"> 使い方</i><%end%>
+          </li>
+          <li>
+            <%= link_to logout_path ,method: :delete  do %><i class="fas fa-sign-out-alt header-link"> ログアウト</i><% end %>
+          </li>
         </ul>
       </nav>
     </div>
@@ -34,23 +45,35 @@
 
   <header>
 
-      <% if controller_name == 'admin/session' %>
-        <nav class="nav" style="background-color: 'green'">
-          <%= link_to "MOVIEW",root_path,id: "logo" %>
-          <ul class="nav navbar-nav navbar-right">
-            <li><%= link_to "ログイン",login_path, class: "header-link" %></li>
-            <li><%= link_to "管理者",admin_login_path, class: "header-link" %></li>
-          </ul>
-        </nav>
-      <%else%>
-        <nav class="nav">
-          <%= link_to "MOVIEW",root_path,id: "logo" %>
-          <ul class="nav navbar-nav navbar-right">
-            <li><%= link_to "ログイン",login_path, class: "header-link" %></li>
-            <li><%= link_to "管理者",admin_login_path, class: "header-link" %></li>
-          </ul>
-        </nav>
-      <%end%>
+    <% logger.debug('check2') %>
+    <% logger.debug(controller_name) %>
+    <% if controller_name == 'admin/session' %>
+    <%# 緑色 admin %>
+      <nav class="nav" style="background-color: '#99CC99'">
+        <%= link_to "MOVIEW",root_path,id: "logo" %>
+        <ul class="nav navbar-nav navbar-right">
+          <li>
+            <%= link_to login_path do%><i class="fas fa-sign-in-alt header-link"> ログイン</i><%end%>
+          </li>
+          <li>
+            <%= link_to admin_login_path do %><i class="fas fa-user-cog header-link"> 管理者</i><%end%>
+          </li>
+        </ul>
+      </nav>
+    <%else%>
+    <%# 青色 ユーザー %>
+      <nav class="nav">
+        <%= link_to "MOVIEW",root_path,id: "logo" %>
+        <ul class="nav navbar-nav navbar-right">
+          <li>
+            <%= link_to login_path do%><i class="fas fa-sign-in-alt header-link"> ログイン</i><%end%>
+          </li>
+          <li>
+            <%= link_to admin_login_path do %><i class="fas fa-user-cog header-link"> 管理者</i><%end%>
+          </li>
+        </ul>
+      </nav>
+    <%end%>
 
   </header>
 

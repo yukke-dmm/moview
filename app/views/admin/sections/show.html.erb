@@ -9,9 +9,9 @@
 <div class="row">
   <div class="col-md-5">
 
-    <h1 class="card-text"><%= @section.title %>
-      <%= link_to "セクションを編集する", edit_admin_section_path(@section),class: "btn btn-primary right" %>
-    </h1>
+    <h3 class="card-text"><%= @section.title %>
+      <%#= link_to "セクション編集", edit_admin_section_path(@section),class: "btn btn-primary right" %>
+    </h3>
     <div class="section-text">
       <span>
         <%= @section.introduce %>

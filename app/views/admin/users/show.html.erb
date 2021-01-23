@@ -53,11 +53,21 @@
         <div id="collapse<%= i %>" class="panel-collapse collapse out" >
           <% section.lectures.each do |lecture|%>
             <div class="panel-body">
-              <%= lecture.title %>
-              <%#= lecture.is_completed_lectures.where(user_id: params[:id])[0].created_at.strftime('%Y/%m/%d %H:%M:%S') %>
-              <% logger.debug('check') %>
-              <% logger.debug(lecture.is_completed_lectures.inspect) %>
-              <%#= @checked_lecture.length >= 1 ? @checked_lecture[0].created_at.strftime('%Y/%m/%d %H:%M:%S') : '完了していません' %>
+
+              <div>
+                <% if lecture.checked_by?(@user) %>
+                  <i class="fas fa-check-square" aria-hidden="true" style="color: green;"></i>
+                <% else %>
+                  <i class="far fa-check-square" aria-hidden="true"></i>
+                <% end %>
+                <%= lecture.title %>
+              </div>
+
+              <div class="right">
+                <%= lecture.is_completed_lectures.where(user_id: params[:id])[0] ? lecture.is_completed_lectures.where(user_id: params[:id])[0].created_at.strftime('%Y/%m/%d %H:%M:%S').inspect : '完了していません' %>
+              </div>
+
+
             </div>
           <% end %>
         </div>

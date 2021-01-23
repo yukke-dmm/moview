@@ -1,6 +1,6 @@
 <div class="row">
   <div class="col-md-12 ">
-    <h3 class="card-text">セクション一覧      <%= link_to "セクションを追加する",admin_path(@course),class: "btn btn-primary right" %></h3>
+    <h3 class="card-text">セクション一覧      <%= link_to "セクション追加",admin_path(@course),class: "btn btn-success right" %></h3>
   </div>
 </div>
 
@@ -19,8 +19,8 @@
           </a>
             <%= section.title %>
             <div class="right">
-              <%= link_to "セクションを編集する",edit_admin_section_path(section),class: "btn btn-primary" %>
-              <%= link_to "レクチャーを追加する",admin_lec_new_path(section),class: "btn btn-primary" %>
+              <%= link_to "セクション編集",edit_admin_section_path(section),class: "btn btn-warning" %>
+              <%= link_to "レクチャー追加",admin_lec_new_path(section),class: "btn btn-success" %>
             </div>
 
         </h4>
@@ -35,7 +35,7 @@
               <%= lecture.title %>
             <% end %>
 
-            <%= link_to "レクチャーを編集する",edit_admin_lecture_path(lecture),class: "btn btn-primary right" %>
+            <%= link_to "レクチャー編集",edit_admin_lecture_path(lecture),class: "btn btn-warning right" %>
           </div>
         <% end %>
       </div>
