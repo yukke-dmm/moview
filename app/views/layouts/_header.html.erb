@@ -44,10 +44,9 @@
 <% else %>
 
   <header>
-
     <% logger.debug('check2') %>
     <% logger.debug(controller.class.name) %>
-        <%# 緑色 admin %>
+        <%# 緑色 admin %>    <%# 青色 ユーザー %>
       <nav class="nav" style="background-color: <%= controller.class.name == 'Admin::SessionController' ?  '#99CC99' : '#1E90FF' %>">
         <%= link_to "MOVIEW",root_path,id: "logo" %>
         <ul class="nav navbar-nav navbar-right">
@@ -59,8 +58,6 @@
           </li>
         </ul>
       </nav>
-    <%# 青色 ユーザー %>
-
   </header>
 
 <% end %>
