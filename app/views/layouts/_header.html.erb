@@ -46,10 +46,9 @@
   <header>
 
     <% logger.debug('check2') %>
-    <% logger.debug(controller_name) %>
-    <% if controller_name == 'admin/session' %>
-    <%# 緑色 admin %>
-      <nav class="nav" style="background-color: '#99CC99'">
+    <% logger.debug(controller.class.name) %>
+        <%# 緑色 admin %>
+      <nav class="nav" style="background-color: <%= controller.class.name == 'Admin::SessionController' ?  '#99CC99' : '#1E90FF' %>">
         <%= link_to "MOVIEW",root_path,id: "logo" %>
         <ul class="nav navbar-nav navbar-right">
           <li>
@@ -60,20 +59,7 @@
           </li>
         </ul>
       </nav>
-    <%else%>
     <%# 青色 ユーザー %>
-      <nav class="nav">
-        <%= link_to "MOVIEW",root_path,id: "logo" %>
-        <ul class="nav navbar-nav navbar-right">
-          <li>
-            <%= link_to login_path do%><i class="fas fa-sign-in-alt header-link"> ログイン</i><%end%>
-          </li>
-          <li>
-            <%= link_to admin_login_path do %><i class="fas fa-user-cog header-link"> 管理者</i><%end%>
-          </li>
-        </ul>
-      </nav>
-    <%end%>
 
   </header>
 
