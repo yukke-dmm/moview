@@ -27,14 +27,23 @@
 <% i = 0 %>
 
 <% @courses.each do |course|%>
-  <%= course.title %> コース
-  進捗度： <%= @user.is_completed_lectures.count %>/<%= course.sections.joins(:lectures).count %>
-  <!-- 　joins でレクチャーを持って来れる。　　 -->
-  最終更新日 <%= @checked.length >= 1 ? @checked[0].created_at.strftime('%Y/%m/%d %H:%M:%S') : '完了したレクチャーはまだありません' %>
-  <!--whereとorderで持ってきているのは作成日の配列。その０番を返す。作成順に並んでいるはずなのでこれでよし  -->
-  <!--   @checkedは配列で返ってくるので、上記のようにして取り出します。
-  データがない場合は'完了したレクチャーはまだありません'と一旦表示してます -->
-  <!--  -->
+  <div class="row">
+    <div class="col-md-6">
+      <strong><%= course.title %> コース</strong>
+    </div>
+    <div class="col-md-3">
+      進捗度： <%= completed_lecture(course, params[:id]) %>/<%= course.sections.joins(:lectures).count %>
+      <!-- 　joins でレクチャーを持って来れる。　　 -->
+    </div>
+    <div class="col-md-3">
+      <%#= course.sections.joins(:lectures).is_completed_lectures.where(user_id: params[:id])[0] ? course.sections.joins(:lectures).is_completed_lectures.where(user_id: params[:id])[created_at: :desc].created_at.strftime('%Y/%m/%d %H:%M:%S').inspect : '完了していません' %>
+      最終更新日 <%= latest_completed_lecture_date(course, params[:id]) %>
+      <!--whereとorderで持ってきているのは作成日の配列。その０番を返す。作成順に並んでいるはずなのでこれでよし  -->
+      <!--   @checkedは配列で返ってくるので、上記のようにして取り出します。
+      データがない場合は'完了したレクチャーはまだありません'と一旦表示してます -->
+      <!--  -->
+    </div>
+  </div>
 
   <div class="panel-group" id="accordion">
     <% course.sections.each do |section| %>
@@ -76,4 +85,3 @@
     <% end %>
   </div>
 <% end %>
-
