@@ -32,7 +32,7 @@
        <strong><%= course.title %> コース</strong>
     </div>
     <div class="col-md-3">
-      進捗度： <%= course.sections.joins(:lectures).order(:is_completed_lectures).count %>/<%= course.sections.joins(:lectures).count %>
+      進捗度： <%= course.sections.lecture.joins(:is_completed_lectures).count %>/<%= course.sections.joins(:lectures).count %>
       <!-- 　joins でレクチャーを持って来れる。　　 -->
     </div>
     <div class="col-md-3">

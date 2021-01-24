@@ -10,6 +10,7 @@ before_action :admin_user
   def show
   	@user = User.find(params[:id])
     @courses = Course.all
+    @section = Section.find(params[:id])
 
     # コースを限定してユーザーのcreated_atを持ってきたい
     # @lecture = IsCompletedLecture.where(lecture_id: params[:lecture_id])
