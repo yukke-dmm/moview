@@ -58,10 +58,10 @@
         <% end %>
         <ul class="nav navbar-nav navbar-right">
           <li>
-            <%= link_to login_path do%><i class="fas fa-sign-in-alt header-link"> ログイン</i><%end%>
+            <%= link_to login_path do%><i class="fas fa-sign-in-alt header-link" style="color: <%= controller.class.name == 'Admin::SessionController' ?  'white' : 'gray' %>"> ログイン</i><%end%>
           </li>
           <li>
-            <%= link_to admin_login_path do %><i class="fas fa-user-cog header-link"> 管理者</i><%end%>
+            <%= link_to admin_login_path do %><i class="fas fa-user-cog header-link" style="color: <%= controller.class.name == 'Admin::SessionController' ?  'white' : 'gray' %>"> 管理者</i><%end%>
           </li>
         </ul>
       </nav>
