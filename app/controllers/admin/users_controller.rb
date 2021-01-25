@@ -24,7 +24,6 @@ before_action :admin_user
     end
     return completed_lecture_count
     # view側から呼び出す関数
-
     # course情報 を引数で渡す
     # course内の 各section の lecture で、is_completed_lectures が存在するものをselectで抽出
     # 抽出したものからさらに選択中のuser_idのものだけ抽出

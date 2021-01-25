@@ -36,7 +36,7 @@ class Admin::LecturesController < ApplicationController
     @lecture = Lecture.find(params[:id])
     @lecture.destroy
     flash[:success] = "削除しました"
-    redirect_to admin_course_url(@lecture.section_id)
+    redirect_to admin_course_url(@lecture.section.course_id)
   end
 
 private
