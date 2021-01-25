@@ -120,4 +120,8 @@ private
     # ここをアドミンでしかできないようにするには・・・どうする？
   end
 
+  helper_method :completed_lecture
+  helper_method :latest_completed_lecture_date
+
+
 end
