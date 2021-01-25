@@ -1,18 +1,21 @@
 <% if admin_logged_in? %>
+
   <header class="header-admin">
     <div class="container">
       <nav class="nav">
-        <%= link_to "MOVIEW",root_path,id: "logo" %>
+        <%= link_to root_path ,data: {"turbolinks" => false} do %>
+          <%= image_tag "moviewlogo2.png", alt: "MOVIEW", height: "50px"%>
+        <% end %>
         <ul class="nav navbar-nav navbar-right">
-          <li class="header-name header-link"><%= current_admin.name %></li>
+          <li class="header-name admin-header-link"><%= current_admin.name %></li>
           <li>
-            <%= link_to admin_users_path do %><i class="fas fa-users header-link"> 社員一覧</i><%end%>
+            <%= link_to admin_users_path do %><i class="fas fa-users admin-header-link"> 社員一覧</i><%end%>
           </li>
           <li>
-            <%= link_to admin_courses_path do %><i class="fas fa-film header-link"> コース一覧</i><%end%>
+            <%= link_to admin_courses_path do %><i class="fas fa-film admin-header-link"> コース一覧</i><%end%>
           </li>
           <li>
-            <%= link_to admin_logout_path ,method: :delete  do %><i class="fas fa-sign-out-alt header-link"> ログアウト</i><% end %>
+            <%= link_to admin_logout_path ,method: :delete  do %><i class="fas fa-sign-out-alt admin-header-link"> ログアウト</i><% end %>
           </li>
         </ul>
       </nav>
@@ -24,11 +27,13 @@
   <header>
     <div class="container">
       <nav class="nav">
-        <%= link_to "MOVIEW",root_path,id: "logo" %>
+        <%= link_to root_path ,data: {"turbolinks" => false} do %>
+          <%= image_tag "moviewlogo2.png", alt: "MOVIEW", height: "50px"%>
+        <% end %>
         <ul class="nav navbar-nav navbar-right">
           <li class="header-name header-link"><%= current_user.name %></li>
           <li>
-            <%= link_to root_path do %><i class="fas fa-home"> トップ</i><%end%>
+            <%= link_to root_path do %><i class="fas fa-home header-link"> トップ</i><%end%>
           </li>
           <li>
             <%= link_to about_path do %><i class="fas fa-pencil-ruler header-link"> 使い方</i><%end%>
@@ -47,8 +52,10 @@
     <% logger.debug('check2') %>
     <% logger.debug(controller.class.name) %>
         <%# 緑色 admin %>    <%# 青色 ユーザー %>
-      <nav class="nav" style="background-color: <%= controller.class.name == 'Admin::SessionController' ?  '#99CC99' : '#1E90FF' %>">
-        <%= link_to "MOVIEW",root_path,id: "logo" %>
+      <nav class="nav" style="background-color: <%= controller.class.name == 'Admin::SessionController' ?  'black' : 'white' %>">
+        <%= link_to root_path ,data: {"turbolinks" => false} do %>
+          <%= image_tag "moviewlogo2.png", alt: "MOVIEW", height: "50px"%>
+        <% end %>
         <ul class="nav navbar-nav navbar-right">
           <li>
             <%= link_to login_path do%><i class="fas fa-sign-in-alt header-link"> ログイン</i><%end%>

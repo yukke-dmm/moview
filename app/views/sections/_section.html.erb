@@ -1,16 +1,12 @@
 <div class="row">
-  <div class="col-md-10">
+  <div class="col-md-12">
     <h3 class="card-text">セクション一覧</h3>
   </div>
-  <div class="col-md-2">
-    <% if logged_in? %>
-      <% if current_user.admin? %>
-        <%= link_to "セクションを追加する","/courses/#{params[:id]}/section_new",class: "btn btn-primary" %>
-      <% else %>
+</div>
 
-      <% end %>
-    <% end %>
-  </div>
+<div class="lecture-text">
+  <%= attachment_image_tag @section.course, :image, :fill,50, 50, fallback: "no_image.jpg", size: '50x50', class: "mini-image" %>
+  　　<%= @section.course.title%>
 </div>
 
 <br>

@@ -12,13 +12,11 @@
 
       <%= @course.title%>
     </h3>
-    <div class="center">
-      <%= attachment_image_tag @course, :image , :fill, 158, 135, fallback: "no_image.jpg", size: '400x300' %>
+    <div class="col-md-5">
+      <%= attachment_image_tag @course, :image , :fill, 158, 135, fallback: "no_image.jpg", size: '280x200' %>
     </div>
-    <div class="lecture-text">
-      <span>
+    <div class="col-md-7 lecture-text">
         <%= @course.introduce %>
-      </span>
     </div>
 
   </div>
@@ -28,6 +26,3 @@
   </div>
 
 </div>
-
-<br>
-      <%= attachment_image_tag @section.course, :image, :fill,50, 50, fallback: "no_image.jpg", size: '30x30', class: "mini-image" %>

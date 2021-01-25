@@ -4,6 +4,11 @@
   </div>
 </div>
 
+<div class="lecture-text">
+  <%= attachment_image_tag @section.course, :image, :fill,50, 50, fallback: "no_image.jpg", size: '50x50', class: "mini-image" %>
+  　　<%= @section.course.title%>
+</div>
+
 <br>
 
 <% i = 0 %>

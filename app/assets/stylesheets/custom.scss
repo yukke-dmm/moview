@@ -35,11 +35,10 @@ li{
   font-size:14px;
 }
 
-
 .line{
   padding-top: 15px;
   margin-bottom: 15px;
-  border-bottom:solid 5px darkgray;
+  border-bottom:solid 3px darkgray;
 }
 
 .line-thin{
@@ -134,7 +133,7 @@ h1{
 .lecture-text{
   background-color:#F8F8FF;
   border-radius:3px;
-  padding:5px;
+  padding:10px;
   margin-top:5px;
 }
 
@@ -181,29 +180,24 @@ input {
 
 /*---------header---------*/
 header {
-  background-color:#1E90FF;
-}
-
-header > a {
-  color:white;
-  text-decoration:none;
+  background-color:white;
+  border-bottom: dashed 1px gray;
 }
 
 .header-link{
+  color:gray;
+}
+
+.admin-header-link{
   color:white;
 }
 
-header.Admin::SessionController{
-  background-color: green;
-}
-
-
 .header-admin{
-  background-color:#99CC99;
+  background-color:black;
 }
 
 .nav{
-  padding: 0 10px 0 20px ;
+  padding: 0 20px 0 0 ;
 }
 
 
