@@ -35,11 +35,11 @@
       <strong><%= course.title %> コース</strong>
     </div>
     <div class="col-md-3">
-      進捗度： <%#= completed_lecture(course, params[:id]) %>/<%= course.sections.joins(:lectures).count %>
+      進捗度： <%= completed_lecture(course, params[:id]) %>/<%= course.sections.joins(:lectures).count %>
       <!-- 　joins でレクチャーを持って来れる。　　 -->
     </div>
     <div class="col-md-3">
-      最終更新日 <%#= latest_completed_lecture_date(course, params[:id]) %>
+      最終更新日 <%= latest_completed_lecture_date(course, params[:id]) %>
     </div>
   </div>
 
