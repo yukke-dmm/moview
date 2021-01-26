@@ -192,7 +192,6 @@ input {
 header {
   background-color:white;
   border-bottom: dashed 1px gray;
-
 }
 
 .header-link{
@@ -211,6 +210,13 @@ header {
   padding: 0 20px 0 0 ;
 }
 
+
+ul.nav li {
+  background-color: transparent; /* default value */
+}
+ul.nav li.selected {
+  background-color: red;
+}
 
 #logo {
   float: left;
