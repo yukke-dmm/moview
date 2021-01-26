@@ -36,12 +36,7 @@
 <!--          <div id="collapse<%= i %>" class="panel-collapse collapse out"> -->
 
         <table class="table table-bordered table-sortable">
-          <thead>
-            <tr>
-              <th></th>
-            </tr>
-          </thead>
-          <tbody>
+          <tbody id="lectures_list">
             <% section.lectures.each do |lecture|%>
             <%= content_tag "tr", id: "lecture-#{lecture.id}", class: "item", data: { model_name: lecture.class.name.underscore, update_url: admin_lecture_sort_path(lecture)} do %>
               <tr>
@@ -56,7 +51,7 @@
                 </td>
               </tr>
               <% end %>
-            <% end %> 
+            <% end %>
           </tbody>
         </table>
 
