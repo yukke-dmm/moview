@@ -127,8 +127,12 @@ h1{
   color: green;
 }
 
-.nav > admin-hover:hover{
+.nav > li > a:hover{
   background-color:gray;
+}
+
+.nav > li.now > a {
+  background-color:gray !important;
 }
 
 /*--------section--------*/
@@ -152,6 +156,11 @@ h1{
   margin-top:5px;
 }
 
+.table-sortable {
+  tr.item {
+    cursor: row-resize;
+  }
+}
 
 
 /*-------- miscellaneous ---------*/
@@ -192,7 +201,6 @@ input {
 header {
   background-color:white;
   border-bottom: dashed 1px gray;
-
 }
 
 .header-link{
@@ -211,6 +219,13 @@ header {
   padding: 0 20px 0 0 ;
 }
 
+
+ul.nav li {
+  background-color: transparent; /* default value */
+}
+ul.nav li.selected {
+  background-color: red;
+}
 
 #logo {
   float: left;

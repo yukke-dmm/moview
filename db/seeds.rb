@@ -47,6 +47,7 @@ end
   introduce = "説明サンプル#{n+1}説明サンプル#{n+1}説明サンプル#{n+1}説明サンプル#{n+1}説明サンプル#{n+1}説明サンプル#{n+1}説明サンプル#{n+1}説明サンプル#{n+1}"
   Course.create!(title: title,
                  introduce: introduce,
+                 image: "humbager.jpg",
                  admin_id: "1")
 end
 
