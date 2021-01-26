@@ -127,8 +127,12 @@ h1{
   color: green;
 }
 
-.nav > admin-hover:hover{
+.nav > li > a:hover{
   background-color:gray;
+}
+
+.nav > li.now > a {
+  background-color:gray !important;
 }
 
 /*--------section--------*/

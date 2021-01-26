@@ -16,12 +16,14 @@
         <%= link_to root_path ,data: {"turbolinks" => false} do %>
           <%= image_tag "moviewad.png", alt: "MOVIEW", height: "50px"%>
         <% end %>
+        <% logger.debug('hoge') %>
+        <% logger.debug(request.fullpath) %>
         <ul class="nav navbar-nav navbar-right">
-          <li class="header-name admin-header-link"><%= current_admin.name %></li>
-          <li class="">
+          <li class="header-name admin-header-link "><%= current_admin.name %></li>
+          <li class="<%= request.fullpath == '/admin/users' ? 'now' : '' %>">
             <%= link_to admin_users_path do %><i class="fas fa-users admin-header-link"> 社員一覧</i><%end%>
           </li>
-          <li>
+          <li class="<%= request.fullpath == '/admin/courses' ? 'now' : '' %>">
             <%= link_to admin_courses_path do %><i class="fas fa-film admin-header-link"> コース一覧</i><%end%>
           </li>
           <li>
