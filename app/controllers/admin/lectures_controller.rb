@@ -39,10 +39,16 @@ class Admin::LecturesController < ApplicationController
     redirect_to admin_course_url(@lecture.section.course_id)
   end
 
+  def sort
+    lecture = Lecture.find(params[:lecture_id])
+    lecture.update(lecture_params)
+    render body: nil
+  end
+
 private
 
   def lecture_params
-    params.require(:lecture).permit(:title, :introduce,:section_id,:lecture_number,:lecture_movie_url)
+    params.require(:lecture).permit(:title, :introduce,:section_id,:lecture_number,:lecture_movie_url,:row_order_position)
   end
 
 

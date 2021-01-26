@@ -12,7 +12,11 @@
 //
 //= require rails-ujs
 //= require jquery
+
 //= require bootstrap
 //= require activestorage
 //= require turbolinks
 //= require_tree .
+//= require jquery-ui/widgets/sortable
+//= require jquery-ui/effects/effect-highlight
+

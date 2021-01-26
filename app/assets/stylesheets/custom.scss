@@ -152,6 +152,11 @@ h1{
   margin-top:5px;
 }
 
+.table-sortable {
+  tr.item {
+    cursor: row-resize;
+  }
+}
 
 
 /*-------- miscellaneous ---------*/

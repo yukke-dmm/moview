@@ -34,17 +34,36 @@
             <!-- 上のiの計算で数字が変わっているため、ここをi+1にすると連動しなくなるので注意 -->
       <div id="collapse<%= i %>" class="panel-collapse collapse <%='in' if (section.id).to_i == (params[:section_id]).to_i %><%='out' if (section.id).to_i != (params[:section_id]).to_i %>" >
 <!--          <div id="collapse<%= i %>" class="panel-collapse collapse out"> -->
-        <% section.lectures.each do |lecture|%>
-          <div class="panel-body <%= 'lightpink' if (lecture.id).to_i == (params[:lecture_id]).to_i%>">
-            <%= link_to admin_lec_path(section,lecture) do %>
-              <%= lecture.title %>
-            <% end %>
 
-            <%= link_to "レクチャー編集",edit_admin_lecture_path(lecture),class: "btn btn-warning right" %>
-          </div>
-        <% end %>
+        <table class="table table-bordered table-sortable">
+          <thead>
+            <tr>
+              <th></th>
+            </tr>
+          </thead>
+          <tbody>
+            <% section.lectures.each do |lecture|%>
+            <%= content_tag "tr", id: "lecture-#{lecture.id}", class: "item", data: { model_name: lecture.class.name.underscore, update_url: admin_lecture_sort_path(lecture)} do %>
+              <tr>
+                <td>
+                  <div class="panel-body <%= 'lightpink' if (lecture.id).to_i == (params[:lecture_id]).to_i%> ">
+                    <%= link_to admin_lec_path(section,lecture) do %>
+                      <%= lecture.title %>
+                    <% end %>
+
+                    <%= link_to "レクチャー編集",edit_admin_lecture_path(lecture),class: "btn btn-warning right" %>
+                  </div>
+                </td>
+              </tr>
+              <% end %>
+            <% end %> 
+          </tbody>
+        </table>
+
+
       </div>
 
     </div>
   <% end %>
 </div>
+

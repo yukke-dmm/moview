@@ -58,11 +58,12 @@
 
 <% else %>
 
-  <header class="navbar-fixed-top">
+  <header class="navbar-fixed-top" style="background-color: <%= controller.class.name == 'Admin::SessionController' ?  'black' : 'white' %>">
     <% logger.debug('check2') %>
     <% logger.debug(controller.class.name) %>
+    <div class="container">
         <%# 緑色 admin %>    <%# 青色 ユーザー %>
-      <nav class="nav" style="background-color: <%= controller.class.name == 'Admin::SessionController' ?  'black' : 'white' %>">
+      <nav class="nav" >
         <%= link_to root_path ,data: {"turbolinks" => false} do %>
           <%= image_tag "moviewlogo2.png", alt: "MOVIEW", height: "50px"%>
         <% end %>
@@ -75,6 +76,7 @@
           </li>
         </ul>
       </nav>
+    </div>
   </header>
 
 <% end %>
