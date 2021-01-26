@@ -1,7 +1,8 @@
 <nav aria-label="breadcrumb">
   <ol class="breadcrumb">
-    <li class="breadcrumb-item"><%= link_to "コース詳細",admin_course_path(@section.course_id)%></li>
-    <li class="breadcrumb-item active" aria-current="page">セクション詳細</li>
+    <li class="breadcrumb-item"><%= link_to "コース一覧",admin_courses_path %></li>
+    <li class="breadcrumb-item"><%= link_to admin_course_path(@section.course_id) do %><%= @section.course.title %><%end%></li>
+    <li class="breadcrumb-item active" aria-current="page"><%= @section.title %></li>
   </ol>
 </nav>
 

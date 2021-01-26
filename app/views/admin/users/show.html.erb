@@ -39,7 +39,12 @@
       <!-- 　joins でレクチャーを持って来れる。　　 -->
     </div>
     <div class="col-md-3">
-      最終更新日 <%= latest_completed_lecture_date(course, params[:id]) %>
+      <% if latest_completed_lecture_date(course, params[:id]).nil? %>
+        最終更新日 :
+      <% else %>
+
+      <% end %>
+        <%= latest_completed_lecture_date(course, params[:id]) %>
     </div>
   </div>
 

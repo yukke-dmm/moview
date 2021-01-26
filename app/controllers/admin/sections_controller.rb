@@ -6,6 +6,7 @@ class Admin::SectionsController < ApplicationController
 
   def new
     @section = Section.new
+    @course = Course.find(params[:course_id])
   end
 
   def create

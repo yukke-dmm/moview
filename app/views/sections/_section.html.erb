@@ -36,31 +36,37 @@
       <div id="collapse<%= i %>" class="panel-collapse collapse <%='in' if (section.id).to_i == (params[:section_id]).to_i %><%='out' if (section.id).to_i != (params[:section_id]).to_i %>" >
         <% section.lectures.each do |lecture|%>
           <div class="panel-body <%= 'lightpink' if (lecture.id).to_i == (params[:lecture_id]).to_i%>">
-            <%= link_to "/sections/#{section.id}/lectures/#{lecture.id}" do %>
-              <%= lecture.title %>
-            <% end %>
+            <div>
+              <% if logged_in? %>
+                <!-- チェックボタン -->
+                <% if lecture.checked_by?(current_user) %>
+                  <li>
+                    <%= link_to lecture_is_completed_lectures_path(lecture), method: :delete do %>
+                      <i class="fas fa-check-square" aria-hidden="true" style="color: green;"></i>
+                    <% end %>
+                    <%= link_to "/sections/#{section.id}/lectures/#{lecture.id}" do %>
+                      <%= lecture.title %>
+                    <% end %>
+                  </li>
+                <% else %>
+                  <li>
+                    <%= link_to lecture_is_completed_lectures_path(lecture), method: :post do %>
+                      <i class="far fa-check-square" aria-hidden="true"></i>
+                    <% end %>
+                    <%= link_to "/sections/#{section.id}/lectures/#{lecture.id}" do %>
+                      <%= lecture.title %>
+                    <% end %>
+                  </li>
 
-            <% if logged_in? %>
-              <!-- チェックボタン -->
-              <% if lecture.checked_by?(current_user) %>
-                <li>
-                  <%= link_to lecture_is_completed_lectures_path(lecture), method: :delete do %>
-                    <i class="fas fa-check-square" aria-hidden="true" style="color: green;"></i>
-                  <% end %>
-                </li>
-              <% else %>
-                <li>
-                  <%= link_to lecture_is_completed_lectures_path(lecture), method: :post do %>
-                    <i class="far fa-check-square" aria-hidden="true"></i>
-                  <% end %>
-                </li>
-              <% end %>
-                <!-- ここまで -->
-              <% if current_user.admin? %>
-                <%= link_to "レクチャーを編集する",edit_lecture_path(lecture),class: "btn btn-primary right" %>
+                <% end %>
+                  <!-- ここまで -->
               <% end %>
 
-            <% end %>
+            </div>
+
+
+
+
           </div>
         <% end %>
       </div>

@@ -1,6 +1,6 @@
 <% if admin_logged_in? %>
 
-  <header class="header-admin">
+  <header class="header-admin navbar-fixed-top">
     <div class="container">
       <nav class="nav">
         <%= link_to root_path ,data: {"turbolinks" => false} do %>
@@ -8,7 +8,7 @@
         <% end %>
         <ul class="nav navbar-nav navbar-right">
           <li class="header-name admin-header-link"><%= current_admin.name %></li>
-          <li>
+          <li class="admin-hover">
             <%= link_to admin_users_path do %><i class="fas fa-users admin-header-link"> 社員一覧</i><%end%>
           </li>
           <li>
@@ -24,7 +24,7 @@
 
 <% elsif logged_in? %>
 
-  <header>
+  <header class="fixed-top">
     <div class="container">
       <nav class="nav">
         <%= link_to root_path ,data: {"turbolinks" => false} do %>
@@ -48,7 +48,7 @@
 
 <% else %>
 
-  <header>
+  <header class="navbar-fixed-top">
     <% logger.debug('check2') %>
     <% logger.debug(controller.class.name) %>
         <%# 緑色 admin %>    <%# 青色 ユーザー %>

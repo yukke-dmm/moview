@@ -42,7 +42,7 @@ before_action :admin_user
     if latest_completed_lectures.length > 0
       latest_completed_lectures.each do |latest_completed_lecture|
         if latest_completed_lecture.where(user_id: user_id).order(created_at: :desc).limit(1)[0]
-          return latest_completed_lecture.where(user_id: user_id).order(created_at: :desc).limit(1)[0].created_at
+          return latest_completed_lecture.where(user_id: user_id).order(created_at: :desc).limit(1)[0].created_at.strftime('%Y/%m/%d %H:%M:%S')
         else
           return '完了したレクチャーはまだありません'
         end
