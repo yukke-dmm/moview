@@ -18,10 +18,10 @@
         <% end %>
         <ul class="nav navbar-nav navbar-right">
           <li class="header-name admin-header-link"><%= current_admin.name %></li>
-          <li class="">
+          <li class="<%= request.fullpath == '/admin/users' ? 'now' : '' %> admin-li">
             <%= link_to admin_users_path do %><i class="fas fa-users admin-header-link"> 社員一覧</i><%end%>
           </li>
-          <li>
+          <li class="<%= request.fullpath == '/admin/courses' ? 'now' : '' %> admin-li">
             <%= link_to admin_courses_path do %><i class="fas fa-film admin-header-link"> コース一覧</i><%end%>
           </li>
           <li>
@@ -42,10 +42,10 @@
         <% end %>
         <ul class="nav navbar-nav navbar-right">
           <li class="header-name header-link"><%= current_user.name %></li>
-          <li>
+          <li class="<%= request.fullpath == '/' ? 'now' : '' %>">
             <%= link_to root_path do %><i class="fas fa-home header-link"> トップ</i><%end%>
           </li>
-          <li>
+          <li class="<%= request.fullpath == '/about' ? 'now' : '' %>">
             <%= link_to about_path do %><i class="fas fa-pencil-ruler header-link"> 使い方</i><%end%>
           </li>
           <li>
@@ -74,10 +74,10 @@
           <% end %>
         <% end %>
         <ul class="nav navbar-nav navbar-right">
-          <li>
+          <li class="<%= request.fullpath == '/login' ? 'now' : '' %> <%= request.fullpath == '/admin/login' ? 'admin-li' : '' %>">
             <%= link_to login_path do%><i class="fas fa-sign-in-alt header-link" style="color: <%= controller.class.name == 'Admin::SessionController' ?  'white' : 'gray' %>"> ログイン</i><%end%>
           </li>
-          <li>
+          <li class="<%= request.fullpath == '/admin/login' ? 'adminnow' : '' %>">
             <%= link_to admin_login_path do %><i class="fas fa-user-cog header-link" style="color: <%= controller.class.name == 'Admin::SessionController' ?  'white' : 'gray' %>"> 管理者</i><%end%>
           </li>
         </ul>

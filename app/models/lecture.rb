@@ -6,7 +6,7 @@ class Lecture < ApplicationRecord
   validates :lecture_number, presence: true
 
   include RankedModel
-  ranks :row_order
+  ranks :row_order, with_same: :section_id
 
   def checked_by?(user)
     is_completed_lectures.where(user_id: user.id).exists?
