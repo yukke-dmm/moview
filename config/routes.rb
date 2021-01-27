@@ -20,7 +20,9 @@ Rails.application.routes.draw do
 
     resources :courses,only:[:new,:create,:show,:destroy,:edit,:update,:index]
     resources :sections,only:[:create,:show,:destroy,:update,:edit]
-    resources :lectures,only:[:create,:destroy,:edit,:update,:index]
+    resources :lectures,only:[:create,:destroy,:edit,:update,:index] do
+      put :sort
+    end
   end
 
 

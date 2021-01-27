@@ -22,7 +22,8 @@ class Admin::SectionsController < ApplicationController
   def show
     @section = Section.includes(:lectures).find(params[:section_id])
     @course = Course.find(@section.course_id)
-    @sections = @course.sections.all
+    @sections = @course.sections.join(:lectures).rank(:row_order) 
+    # rankは並べ替えなので注意
     @lecture = Lecture.find(params[:lecture_id])
     # ここで選択中のセクション配下のレクチャーのIDだけを抽出した配列を作成する。
     # 書き方　・・・　配列の入った変数.map {|変数名| 処理内容 }
@@ -33,6 +34,7 @@ class Admin::SectionsController < ApplicationController
 
   def edit
     @section = Section.find(params[:id])
+    @lecture = @section.lectures.rank(:row_order) 
   end
 
   def update
@@ -52,10 +54,22 @@ class Admin::SectionsController < ApplicationController
     redirect_to admin_course_url(@section.course_id)
   end
 
+  # this action will be called via ajax
+  def sort
+    lecture = Lecture.find(params[:lecture_id])
+    lecture.update(lecture_params)
+    render body: nil 
+  end
+
+
 private
 
   def section_params
     params.require(:section).permit(:title, :introduce,:course_id)
+  end
+
+  def lecture_params
+    params.require(:lecture).permit(:title, :introduce,:section_id,:lecture_number,:lecture_movie_url,:row_order_position)
   end
 
   def logged_in_admin

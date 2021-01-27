@@ -15,6 +15,21 @@
 
 <div class="row">
   <div class="col-md-6 col-md-offset-3">
-    <%= render 'form' %>
+    <%= render 'form' %><br>
+
+        <table class="table table-bordered table-sortable">
+          <tbody id="lectures_list">
+                  <% @lecture.each do |lecture|%>
+                    <%= content_tag "tr", id: "lecture-#{lecture.id}", class: "item", data: { model_name: lecture.class.name.underscore, update_url: admin_lecture_sort_path(lecture),"turbolinks" => false} do %>
+                      <td>
+                        <%= lecture.title %>
+                        <%= link_to "レクチャー編集",edit_admin_lecture_path(lecture),class: "btn btn-warning right" %>
+                      </td>
+                    <% end %>
+                  <% end %>
+          </tbody>
+        </table>
+
+<!-- data: {"turbolinks" => false} -->
   </div>
 </div>
