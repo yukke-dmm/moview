@@ -1,25 +1,16 @@
 <nav aria-label="breadcrumb">
   <ol class="breadcrumb">
     <li class="breadcrumb-item"><%= link_to "トップ",root_path %></li>
-    <li class="breadcrumb-item"><%= link_to "コース詳細",course_path(@section.course_id)%></li>
-    <li class="breadcrumb-item active" aria-current="page">セクション詳細</li>
+    <li class="breadcrumb-item"><%= link_to course_path(@section.course_id) do %><%= @section.course.title %><%end%></li>
+    <li class="breadcrumb-item active" aria-current="page"><%= @section.title %></li>
   </ol>
 </nav>
 
 <div class="row">
   <div class="col-md-8">
-    <h3 class="card-text"><%= @section.title %>
-        <% if current_user.admin? %>
-          <%= link_to "セクションを編集する", edit_section_path(@section),class: "btn btn-primary right" %>
-        <% end %>
+    <h3 class="card-text">
+      <strong><%= @lecture.title %></strong><br>
     </h3>
-
-    <div class="section-text">
-      <span>
-        <%= @section.introduce %>
-      </span>
-    </div>
-
 
     <div class="movie　row">
       <iframe width="100%" height="400px" src="<%= @lecture.lecture_movie_url %>" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
@@ -29,15 +20,15 @@
         <%= render "sections/nextbutton" %>
     </span>
 
-    <div class="lecture-text">
-      <div class="card-text">
-        <strong><%= @lecture.title %></strong><br>
+    <br>
+    <div class="">
+      <div class="col-md-2">
+        <%= attachment_image_tag @section.course, :image, :fill,50, 50, fallback: "no_image.jpg", size: '50x50', class: "mini-image" %>
       </div>
-      <div>
+      <div class="col-md-10 lecture-text">
         <%= @lecture.introduce %>
       </div>
     </div>
-
 
   </div>
 

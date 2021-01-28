@@ -14,6 +14,7 @@ before_action :admin_user
     @checked = IsCompletedLecture.where(user_id: params[:id]).order(created_at: :desc).limit(1) # IsCompletedLecture をwhere で対象のユーザーに絞り込み、order(created_at: :desc)で新しい順に並び替え、limit で1つだけ取り出します
   end
 
+# course,user_id が引数
   def completed_lecture(course, user_id)
     completed_lecture_count = 0
     course.sections.each do |section|

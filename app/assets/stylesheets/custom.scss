@@ -31,7 +31,7 @@ body{
 
 .flex{
   display: flex;
-  justify-content:flex-start;
+  justify-content:space-between;
   flex-flow:row wrap;
 }
 
@@ -58,6 +58,7 @@ h1{
 
 .right{
   float:right;
+  margin:0 auto;
 }
 
 .center{
@@ -84,6 +85,26 @@ h1{
   border-radius:50px;
 }
 
+.breadcrumb{
+  margin:0;
+}
+
+.pagination{
+  margin:0;
+}
+
+/*-------アコーディオン------*/
+.panel-heading{
+  padding:5px 15px !important;
+}
+
+.panel-title{
+  line-height:25px !important;
+}
+
+td{
+  font-size:18px;
+}
 
 
 /*-------- course --------*/
@@ -133,18 +154,14 @@ h1{
 
 /*--------section--------*/
 .movie{
-  margin: 30px;
-  height:400px;
-  width:600px;
-  background-color:skyblue;
-  position:center;
+  margin-left: 0 !important;
+  padding-left:0 !important;
 }
 
 .lecture-text{
   background-color:#F8F8FF;
   border-radius:3px;
   padding:10px;
-  margin-top:5px;
 }
 
 .section-text{

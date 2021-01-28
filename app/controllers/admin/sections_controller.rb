@@ -22,7 +22,7 @@ class Admin::SectionsController < ApplicationController
   def show
     @section = Section.includes(:lectures).find(params[:section_id])
     @course = Course.find(@section.course_id)
-    @sections = @course.sections.join(:lectures).rank(:row_order) 
+    @sections = @course.sections.all
     # rankは並べ替えなので注意
     @lecture = Lecture.find(params[:lecture_id])
     # ここで選択中のセクション配下のレクチャーのIDだけを抽出した配列を作成する。
@@ -34,7 +34,7 @@ class Admin::SectionsController < ApplicationController
 
   def edit
     @section = Section.find(params[:id])
-    @lecture = @section.lectures.rank(:row_order) 
+    @lecture = @section.lectures.rank(:row_order)
   end
 
   def update
@@ -58,7 +58,7 @@ class Admin::SectionsController < ApplicationController
   def sort
     lecture = Lecture.find(params[:lecture_id])
     lecture.update(lecture_params)
-    render body: nil 
+    render body: nil
   end
 
 

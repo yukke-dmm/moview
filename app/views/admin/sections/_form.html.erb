@@ -8,6 +8,18 @@
   <%= f.label :introduce,"説明文"%>
   <%= f.text_area :introduce %>
 
+  <table class="table table-bordered table-sortable">
+    <tbody id="lectures_list">
+      <% @lecture.each do |lecture|%>
+        <%= content_tag "tr", id: "lecture-#{lecture.id}", class: "item", data: { model_name: lecture.class.name.underscore, update_url: admin_lecture_sort_path(lecture),"turbolinks" => false} do %>
+          <td>
+            <%= lecture.title %>
+          </td>
+        <% end %>
+      <% end %>
+    </tbody>
+  </table>
+
   <%= f.submit yield(:button_text), class: "btn btn-primary" %>
 
 <% end %>

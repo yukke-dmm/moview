@@ -4,13 +4,6 @@
   </div>
 </div>
 
-<div class="lecture-text">
-  <%= attachment_image_tag @section.course, :image, :fill,50, 50, fallback: "no_image.jpg", size: '50x50', class: "mini-image" %>
-  　　<%= @section.course.title%>
-</div>
-
-<br>
-
 <% i = 0 %>
 
 <div class="panel-group" id="accordion">
@@ -31,42 +24,43 @@
           <% end %>
         </h4>
       </div>
-
             <!-- 上のiの計算で数字が変わっているため、ここをi+1にすると連動しなくなるので注意 -->
       <div id="collapse<%= i %>" class="panel-collapse collapse <%='in' if (section.id).to_i == (params[:section_id]).to_i %><%='out' if (section.id).to_i != (params[:section_id]).to_i %>" >
-        <% section.lectures.each do |lecture|%>
+          <div class="panel-body">
+            <span>
+              <%= section.introduce %>
+            </span>
+          </div>
+        <% section.lectures.sort_by {|lecture| lecture.row_order }.each do |lecture|%>
+        <!-- レクチャーのrow_orderで並べ替えるよ -->
           <div class="panel-body <%= 'lightpink' if (lecture.id).to_i == (params[:lecture_id]).to_i%>">
-            <div>
-              <% if logged_in? %>
-                <!-- チェックボタン -->
-                <% if lecture.checked_by?(current_user) %>
-                  <li>
-                    <%= link_to lecture_is_completed_lectures_path(lecture), method: :delete do %>
-                      <i class="fas fa-check-square" aria-hidden="true" style="color: green;"></i>
-                    <% end %>
-                    <%= link_to "/sections/#{section.id}/lectures/#{lecture.id}" do %>
-                      <%= lecture.title %>
-                    <% end %>
-                  </li>
-                <% else %>
-                  <li>
-                    <%= link_to lecture_is_completed_lectures_path(lecture), method: :post do %>
-                      <i class="far fa-check-square" aria-hidden="true"></i>
-                    <% end %>
-                    <%= link_to "/sections/#{section.id}/lectures/#{lecture.id}" do %>
-                      <%= lecture.title %>
-                    <% end %>
-                  </li>
-
-                <% end %>
-                  <!-- ここまで -->
+            <% if logged_in? %>
+              <!-- チェックボタン -->
+              <% if lecture.checked_by?(current_user) %>
+                <li>
+                  <%= link_to lecture_is_completed_lectures_path(lecture), method: :delete do %>
+                    <i class="fas fa-check-square" aria-hidden="true" style="color: green;"></i>
+                  <% end %>
+                  <%= link_to "/sections/#{section.id}/lectures/#{lecture.id}" do %>
+                    <%= lecture.title %>
+                  <% end %>
+                </li>
+              <% else %>
+                <li>
+                  <%= link_to lecture_is_completed_lectures_path(lecture), method: :post do %>
+                    <i class="far fa-check-square" aria-hidden="true"></i>
+                  <% end %>
+                  <%= link_to "/sections/#{section.id}/lectures/#{lecture.id}" do %>
+                    <%= lecture.title %>
+                  <% end %>
+                </li>
               <% end %>
-
-            </div>
-
-
-
-
+                <!-- ここまで -->
+            <% else %>
+              <%= link_to "/sections/#{section.id}/lectures/#{lecture.id}" do %>
+                <%= lecture.title %>
+              <% end %>
+            <% end %>
           </div>
         <% end %>
       </div>
