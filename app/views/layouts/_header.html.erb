@@ -21,7 +21,7 @@
           <li class="<%= request.fullpath.include?('/admin/users') ? 'adminnow' : '' %> admin-li">
             <%= link_to admin_users_path do %><i class="fas fa-users admin-header-link"> 社員一覧</i><%end%>
           </li>
-          <li class="<%= request.fullpath.include?('/admin/courses') ? 'adminnow' : '' %> admin-li">
+          <li class="<%= request.fullpath.include?('/admin/courses') ? 'adminnow' : '' %> <%= request.fullpath.include?('/admin/sections') ? 'adminnow' : '' %> admin-li">
             <%= link_to admin_courses_path do %><i class="fas fa-film admin-header-link"> コース一覧</i><%end%>
           </li>
           <li class="admin-li">

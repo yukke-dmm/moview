@@ -1,11 +1,11 @@
-<% if @user.errors.any? %>
+<% if yield(:form).errors.any? %>
 
   <div id = "error_explanation">
     <div class="alert alert-danger">
-      <%= @user.errors.count %>　件のエラーがあります。
+      <%= yield(:form).errors.count %>　件のエラーがあります。
     </div>
     <ul>
-      <% @user.errors.full_messages.each do |msg| %>
+      <% yield(:form).errors.full_messages.each do |msg| %>
         <li><%= msg %></li>
       <% end %>
     </ul>

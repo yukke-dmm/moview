@@ -15,7 +15,7 @@ class Admin::SectionsController < ApplicationController
       flash[:success] = "登録に成功しました"
       redirect_to admin_course_url(@section.course_id)
     else
-      render 'new'
+      redirect_to request.referrer
     end
   end
 
@@ -43,7 +43,7 @@ class Admin::SectionsController < ApplicationController
       flash[:success] = "更新に成功しました"
       redirect_to admin_course_url(@section.course_id)
     else
-      render 'edit'
+      redirect_to request.referrer
     end
   end
 

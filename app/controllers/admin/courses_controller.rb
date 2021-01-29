@@ -11,7 +11,6 @@ class Admin::CoursesController < ApplicationController
   def show
     @course = Course.find(params[:id])
     @sections = @course.sections.all
-    @section = Section.find(params[:id])
   end
 
   def create

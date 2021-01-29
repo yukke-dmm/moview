@@ -1,16 +1,13 @@
 <%= form_for(@user,url: yield(:admin_path)) do |f| %>
   <%= render 'shared/error_message',object: @user%>
 
-  <%= f.label :name,"名前" %>
+  <%= f.label :name,"名前" %> <span class="ness">【必須】</span>
   <%= f.text_field :name %>
 
-  <%= f.label :email,"メールアドレス" %>
+  <%= f.label :email,"メールアドレス" %> <span class="ness">【必須】</span>
   <%= f.email_field :email %>
 
-  <%= f.label :employee_number,"社員番号" %>
-  <%= f.text_field :employee_number %>
-
-  <%= f.label :password,"パスワード" %>
+  <%= f.label :password,"パスワード" %> <span class="ness">【必須】</span>
   <%= f.password_field :password %>
 
   <%= f.label :password_confirmation,"パスワード確認" %>
