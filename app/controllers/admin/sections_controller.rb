@@ -34,7 +34,7 @@ class Admin::SectionsController < ApplicationController
 
   def edit
     @section = Section.find(params[:id])
-    @lecture = @section.lectures.rank(:row_order)
+    @lectures = @section.lectures.rank(:row_order)
   end
 
   def update
@@ -65,7 +65,7 @@ class Admin::SectionsController < ApplicationController
 private
 
   def section_params
-    params.require(:section).permit(:title, :introduce,:course_id)
+    params.require(:section).permit(:title, :introduce,:course_id,lecture_attributes: [:sort])
   end
 
   def lecture_params

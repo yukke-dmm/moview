@@ -34,13 +34,18 @@
           <span>
             <%= section.introduce %>
           </span>
+          <br>
+          <span class="caution">
+            ※レクチャーの並べ替えが可能です。
+          </span>
         </div>
 
         <table class="table table-bordered table-sortable">
-          <tbody>
+          <tbody id="lectures_list">
             <% section.lectures.sort_by {|lecture| lecture.row_order }.each do |lecture|%>
               <%= content_tag "tr", id: "lecture-#{lecture.id}", class: "item", data: { model_name: lecture.class.name.underscore, update_url: admin_lecture_sort_path(lecture),"turbolinks" => false} do %>
                 <td class="panel-body <%= 'lightpink' if (lecture.id).to_i == (params[:lecture_id]).to_i%>">
+                  <i class="fas fa-ellipsis-v dot"></i>
                   <%= link_to admin_lec_path(section,lecture) do %>
                     <%= lecture.title %>
                   <% end %>
