@@ -1,5 +1,5 @@
 $(function(){
-  $('#lectures_list').sortable({
+  $('.lectures_list').sortable({
     update: function(e, ui){
       var item = ui.item;
       var item_data = item.data();

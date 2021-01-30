@@ -41,7 +41,7 @@
         </div>
 
         <table class="table table-bordered table-sortable">
-          <tbody id="lectures_list">
+          <tbody class="lectures_list">
             <% section.lectures.sort_by {|lecture| lecture.row_order }.each do |lecture|%>
               <%= content_tag "tr", id: "lecture-#{lecture.id}", class: "item", data: { model_name: lecture.class.name.underscore, update_url: admin_lecture_sort_path(lecture),"turbolinks" => false} do %>
                 <td class="panel-body <%= 'lightpink' if (lecture.id).to_i == (params[:lecture_id]).to_i%>">

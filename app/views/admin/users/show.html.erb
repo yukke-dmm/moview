@@ -38,13 +38,14 @@
     </div>
     <div class="col-md-3">
       進捗度： <%= completed_lecture(course, params[:id]) %>/<%= course.sections.joins(:lectures).count %>
+      （<%= sprintf("%.0f",(completed_lecture(course, params[:id]).to_f / course.sections.joins(:lectures).count.to_f * 100))%>%）
       <!-- 　joins でレクチャーを持って来れる。　　 -->
     </div>
     <div class="col-md-3">
       <% if latest_completed_lecture_date(course, params[:id]).nil? %>
-        最終更新日 :
+        完了したレクチャーはありません。
       <% else %>
-
+        最終更新日 :
       <% end %>
         <%= latest_completed_lecture_date(course, params[:id]) %>
     </div>
