@@ -1,4 +1,5 @@
 <%= form_for(@section,url: yield(:admin_path)) do |f| %>
+  <%= render 'admin/sections/error_message',object: @section %>
 
   <%= f.hidden_field :course_id, :value => params[:course_id] || @section.course_id %>
 

@@ -31,7 +31,6 @@ before_action :admin_user
   end
 
   def latest_completed_lecture_date(course, user_id)
-    logger.debug('gggggggggggggggggg')
     latest_completed_lectures = []
     course.sections.each do |section|
       section.lectures.each do |lecture|

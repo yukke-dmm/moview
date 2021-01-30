@@ -14,6 +14,7 @@ class Admin::LecturesController < ApplicationController
       flash[:success] = "登録に成功しました"
       redirect_to admin_course_url(@lecture.section.course_id)
     else
+      flash[:danger] = "入力に誤りがあります"
       redirect_to request.referrer
     end
   end
@@ -28,6 +29,7 @@ class Admin::LecturesController < ApplicationController
       flash[:success] = "更新に成功しました"
       redirect_to admin_course_url(@lecture.section.course_id)
     else
+      flash[:danger] = "入力に誤りがあります"
       redirect_to request.referrer
     end
   end

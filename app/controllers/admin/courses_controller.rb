@@ -20,6 +20,7 @@ class Admin::CoursesController < ApplicationController
       flash[:success] = "登録に成功しました"
       redirect_to admin_courses_url
     else
+      flash[:danger] = "入力に誤りがあります"
       render 'new'
     end
   end
@@ -34,6 +35,7 @@ class Admin::CoursesController < ApplicationController
         flash[:success] = "更新に成功しました"
         redirect_to  admin_course_url
       else
+        flash[:danger] = "入力に誤りがあります"
         render 'edit'
       end
     end
