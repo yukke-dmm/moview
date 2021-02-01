@@ -5,7 +5,7 @@
         <%= attachment_image_tag courses, :image, :fill, 158, 135, fallback: "no_image.jpg", size: '210x140' %><!-- :image_id を:imageにしてストロングパラメータもそうすると画像投稿できた -->
         <div class="card-body">
           <span class="card-text">
-            【 <%= courses.title %> 】
+            <strong>【 <%= courses.title %> 】</strong>
           </span>
           <br>
           <span class="card-introduce">

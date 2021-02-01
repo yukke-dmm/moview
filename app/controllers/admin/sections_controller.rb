@@ -27,7 +27,7 @@ class Admin::SectionsController < ApplicationController
     # rankは並べ替えなので注意
     @lecture = Lecture.find(params[:lecture_id])
     # ここで選択中のセクション配下のレクチャーのIDだけを抽出した配列を作成する。
-    # 書き方　・・・　配列の入った変数.map {|変数名| 処理内容 }
+    # 書き方　・・・　配列の入った変数.map {|変数名| cd 処理内容 }
     @lecture_ids = @section.lectures.order(row_order: :asc).map{ |lecture| lecture.id }
     #さらにこれで、選択中のレクチャーが①で作成した配列の何番目にあるのかを取得してます
     @lecture_index = @lecture_ids.index(@lecture.id)

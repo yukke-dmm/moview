@@ -43,9 +43,9 @@
     </div>
     <div class="col-md-3">
       <% if latest_completed_lecture_date(course, params[:id]).nil? %>
-        完了したレクチャーはありません。
+        完了したレクチャーはまだありません。
       <% else %>
-        最終更新日 :
+
       <% end %>
         <%= latest_completed_lecture_date(course, params[:id]) %>
     </div>
